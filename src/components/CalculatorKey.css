@@ -1,0 +1,134 @@
+.mathTable { 
+  border: 1px solid #10171C;
+  border-top: none;
+  padding-top: 5px #FFFFFF;
+  box-shadow: 1px 4px 7px #10171C;
+  width: 350px;
+  height: 460px;
+  padding:25px 15px 15px 15px; 
+  border-radius: 0px 0px 3px 3px;
+  background: -webkit-gradient(linear, right top, left bottom, from(#2D3F4D), to(#1D2932)); 
+}
+.mathTable2 { 
+  margin:5px;
+  box-shadow: 1px 4px 7px #10171C;
+  width: 300px;
+  height: 460px;
+  padding:25px 15px 15px 15px; 
+  border-radius: 0px 0px 3px 3px;
+  background: -webkit-gradient(linear, right top, left bottom, from(#FFFFFF), to(#1D2932)); 
+}
+
+.CalculatorKey {
+  font-family: Orbitron,  sans-serif;
+  font-size: 10px;
+  margin: 12px 10px;
+  border: none;
+  width :50px;
+  height: 35px;
+  color:#FFFFFF;
+  background: linear-gradient(#374750, #171F23);
+  box-shadow: inset 0 0 0 0.5px #66696b;
+  border-radius: 3px 3px 3px 2px; 
+  outline:none;
+  letter-spacing: 1px; 
+  box-shadow: 1px 1px 2px #10171C;
+}
+
+.CalculatorKey:active,
+.CalculatorKey.KeyPad-enter:active,
+.CalculatorKey.KeyPad-chs:active, 
+.CalculatorKey.KeyPad-eex:active,
+.CalculatorKey.KeyPad-clx:active,
+.CalculatorKey.KeyPad-sub:active,
+.CalculatorKey.KeyPad-mul:active,
+.CalculatorKey.KeyPad-div:active,
+.CalculatorKey.KeyPad-add:active{
+    background: #f06a7c;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#374750), to(#3E4D55));}
+
+.CalculatorKey.KeyPad-enter {
+  width :120px;
+  height: 35px;
+  font-size: 11px;
+  color:#FFFFFF;
+  background: linear-gradient(#303C41, #171F23);
+  box-shadow: inset 0 0 0 0.5px #66696b;
+  border-radius: 3px 3px 3px 2px ;
+  outline:none;
+  box-shadow: 1px 1px 2px #10171C;
+}
+
+.CalculatorKey.KeyPad-chs, 
+.CalculatorKey.KeyPad-eex,
+.CalculatorKey.KeyPad-clx{
+  color:#FFFFFF;
+  font-size: 11px;
+  background: linear-gradient(#374750, #171F23);
+  border-radius: 3px 3px 3px 3px;
+  outline:none;
+  box-shadow: 1px 1px 2px #10171C;   
+}
+
+.CalculatorKey.KeyPad-sub,
+.CalculatorKey.KeyPad-mul,
+.CalculatorKey.KeyPad-div,
+.CalculatorKey.KeyPad-add {
+  width:40px;
+  height: 30px;
+  font-size: 14px;
+  margin-right: 20px;
+  color:#FFFFFF;
+  background: linear-gradient(#303C41, #171F23);
+  box-shadow: 1px 1px 2px #10171C;
+  text-shadow: none;
+  outline:none;
+
+} 
+
+.CalculatorKey.KeyPad-1,
+.CalculatorKey.KeyPad-2,
+.CalculatorKey.KeyPad-3,
+.CalculatorKey.KeyPad-4,
+.CalculatorKey.KeyPad-5,
+.CalculatorKey.KeyPad-6,
+.CalculatorKey.KeyPad-7,
+.CalculatorKey.KeyPad-8,
+.CalculatorKey.KeyPad-9,
+.CalculatorKey.KeyPad-0,
+.CalculatorKey.KeyPad-pi,
+.CalculatorKey.KeyPad-\. {
+  font-family:   Orbitron;
+  outline:none;
+  font-size: 17px;
+  margin: 10px 10px 5px 15px;
+  border: none;
+  width :45px;
+  height: 35px;
+  background: #DDEDE7;
+  background: linear-gradient(#DDEDE7, #DDEDE7);
+
+  box-shadow: 1px 1px 2px #10171C;
+  color: #1F2626;
+  text-shadow: 0 1px 0 #d6d6d6;
+  border-radius: 4px 4px 4px 4px;
+} 
+
+.CalculatorKey.KeyPad-1:active,
+.CalculatorKey.KeyPad-2:active,
+.CalculatorKey.KeyPad-3:active,
+.CalculatorKey.KeyPad-4:active,
+.CalculatorKey.KeyPad-5:active,
+.CalculatorKey.KeyPad-6:active,
+.CalculatorKey.KeyPad-7:active,
+.CalculatorKey.KeyPad-8:active,
+.CalculatorKey.KeyPad-9:active,
+.CalculatorKey.KeyPad-0:active,
+.CalculatorKey.KeyPad-pi:active,
+.CalculatorKey.KeyPad-\.:active {
+  background: #afafaf;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#afafaf), to(#C5DBD3));
+  background: -moz-linear-gradient(#afafaf, #C5DBD3);
+  background: linear-gradient(#afafaf, #C5DBD3);
+  box-shadow: inset 0 10px 15px 0 #C5DBD3;
+}
