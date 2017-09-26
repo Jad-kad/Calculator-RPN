@@ -1,6 +1,6 @@
 import React from 'react'
-import './DisplayScreen.css'
-import store from './store'
+import '../Css/DisplayScreen.css'
+import store from '../store'
 
 export default class DisplayScreen extends React.Component {
 

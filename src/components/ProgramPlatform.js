@@ -1,7 +1,7 @@
 import React from 'react'
-import './ProgramPlatform.css'
-import store from './store'
-import programOperation from './ProgramOperation'
+import '../Css/ProgramPlatform.css'
+import store from '../store'
+import programOperation from '../actions/ProgramOperation'
 
 export default class ProgramPlatform extends React.Component {
   componentWillMount() {
@@ -27,22 +27,23 @@ export default class ProgramPlatform extends React.Component {
 
   handleClear() {
     store.setState({
-      textAreaValue: ''
+      textAreaValue:''
     })
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className='programWindow1'>
+      <div className='programWindow1'>
+        <form onSubmit={this.handleSubmit}>    
           <textarea className='textArea' rows='30' cols="36" id='textarea' value={store.state.textAreaValue} onChange={this.handleChange}></textarea>
-          <div>
+          <span>
             <input type="submit" value="Run" className='run-button' />
-            <button className='clear-button' onClick={this.handleClear}> Clear </button>
-            <a className='button' > Clear </a>
-          </div>
+          </span>
+        </form>
+        <span>
+           <button className='clear-button' onClick={this.handleClear}> Clear </button>
+        </span>   
         </div>
-      </form>
     )
   }
 }

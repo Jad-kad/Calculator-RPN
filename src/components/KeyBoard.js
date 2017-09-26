@@ -1,6 +1,6 @@
 import React from 'react'
 import CalculatorKey from './CalculatorKey'
-import * as C from './KeyCodes'
+import * as C from '../calculator-codes/KeyCodes'
 
 export default class KeyBoard extends React.Component {
 	render() {

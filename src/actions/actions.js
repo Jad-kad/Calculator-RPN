@@ -1,21 +1,25 @@
-import store from '../components/store'
+import store from '../store'
 
-export function operations(keyCode ,label) {
-  checkLabelAndKeyCode()
+export function operations(keyCode) {
+
   let [x, y, z, t] = store.state.stack,
     localStack = [x, y, z, t],
     operation = store.state.keypressed,
-    localBuffer = store.state.buffer,
     localLastValue = store.state.lastValue,
     localMemo = store.state.memo
 
+
+  // if(keyCode === '0'){
+  //     console.log('keypressed is ',keyCode)
+  //   }
   if (store.state.keypressed === true) {
+        console.log('if statement222',keyCode)
     reOrder()
     store.setState({
       keypressed: false
     })
   }
-  if (Number(keyCode) && store.state.lastValue !== null &&
+  if ((Number(keyCode) || keyCode === '0') &&
     (store.state.keypressed === 'sin' ||
     store.state.keypressed === 'cos' ||
     store.state.keypressed === 'tan' ||
@@ -40,8 +44,8 @@ export function operations(keyCode ,label) {
   }
   if (store.state.lastValue === 'Error') {
     localLastValue = null
-  }
-  if (store.state.keypressed === "eex" && Number(keyCode) && !(Number.isSafeInteger(x))) {
+  } 
+  if (store.state.keypressed === "eex" && (Number(keyCode) || keyCode === '0') && !(Number.isSafeInteger(x))) {
     if ((x.length - x.indexOf('e')) === 4) {
       return
     }
@@ -52,18 +56,18 @@ export function operations(keyCode ,label) {
       console.log("eexValue", eexValue)
       localStack = [eexValue, y, z, t]
     }
-    localLastValue = 0
+    localLastValue = '0'
   }
   //else if(store.state.keypressed ==="eex" && and )
-  checkLabelAndKeyCode()
-  if (Number(keyCode) && store.state.lastValue === null) {
-    // console.log("++++++++++++++++++++++++++++++")
-    localLastValue = label
+  // checkLabelAndKeyCode()
+  if ((Number(keyCode) || keyCode === '0') && store.state.lastValue === null) {
+    localLastValue = keyCode
     localStack[0] = '';
-    localStack[0] = localStack[0] + label.toString()
-    // console.log('Key Pressed is a number=', label)
-  } else if (Number(keyCode) && store.state.lastValue !== null) {
-    localStack[0] = localStack[0] + label.toString()
+    localStack[0] = localStack[0] + keyCode.toString()
+
+  } else if ((Number(keyCode) || keyCode === '0') && store.state.lastValue !== null) {
+
+    localStack[0] = localStack[0] + keyCode.toString()
   }
   switch (keyCode) {
     case "clr":
@@ -213,10 +217,12 @@ export function operations(keyCode ,label) {
       operation = keyCode
       break
     case 'chs':
+    if (store.state.keypressed === 'eex'){
       if (x.indexOf('e') !== -1) {
-        let tmp = setCharAt(x, x.indexOf('e') + 1)
-        localStack = [tmp, y, z, t]
-      } else {
+      let tmp = setCharAt(x, x.indexOf('e') + 1)
+      localStack = [tmp, y, z, t]
+      } 
+  } else {
         localStack = [-1 * x, y, z, t]
         operation = keyCode
       }
@@ -229,6 +235,7 @@ export function operations(keyCode ,label) {
       if (x === 0) {
         localStack = [1 + 'e+0', y, z, t]
         operation = keyCode
+        localLastValue = keyCode
       } else {
         localStack = [x + 'e+0', y, z, t]
         operation = keyCode
@@ -243,15 +250,13 @@ export function operations(keyCode ,label) {
     lastValue : localLastValue,
     memo : localMemo
   })
-  //to re order the stack ater the basic operators +,-,*,/
+  // to re order the stack ater the basic operators +,-,*,/
   function reOrderBasicOperation() {
     localStack = [x, z, t, 0]
   }
-  localBuffer = localStack[0]
   function reOrder() {
     store.setState({
-      lastValue: null,
-      buffer :localBuffer
+      lastValue: null
     })
   }
   function convertToRadians(degrees) {
@@ -272,9 +277,9 @@ export function operations(keyCode ,label) {
       return str.substr(0, index) + '+' + str.substr(index + 1);
     }
   }
-  function checkLabelAndKeyCode() {
-    // console.log("label=", label, "--keycode", keyCode, "LastValu=", store.state.lastValue)
-    // console.log("============================")
-  }
+  // function checkLabelAndKeyCode() {
+  //   // console.log("label=", label, "--keycode", keyCode, "LastValu=", store.state.lastValue)
+  //   // console.log("============================")
+  // }
   // console.log("The End of Operation File")
 }

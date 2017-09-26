@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import store from './components/store'
+import store from './store'
 import DisplayScreen from './components/DisplayScreen'
 import KeyBoard from './components/KeyBoard'
 import ProgramPlatform from './components/ProgramPlatform'

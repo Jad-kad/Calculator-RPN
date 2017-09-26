@@ -12,7 +12,7 @@
   text-align: left;
   border-radius: 7px 7px 0px 0px;
   border: 1px solid #10171C;
-  border-bottom: none;
+  text-overflow: ellipsis;
 }
 
 .stackDiv {
