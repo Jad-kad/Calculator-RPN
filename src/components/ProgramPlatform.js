@@ -27,23 +27,33 @@ export default class ProgramPlatform extends React.Component {
 
   handleClear() {
     store.setState({
-      textAreaValue:''
+      textAreaValue: ''
+    })
+  }
+
+  handleCheckboxRec() {
+    store.setState({
+      recording: !store.state.recording
     })
   }
 
   render() {
     return (
       <div className='programWindow1'>
-        <form onSubmit={this.handleSubmit}>    
+        <form onSubmit={this.handleSubmit}>
           <textarea className='textArea' rows='30' cols="36" id='textarea' value={store.state.textAreaValue} onChange={this.handleChange}></textarea>
           <span>
             <input type="submit" value="Run" className='run-button' />
           </span>
         </form>
         <span>
-           <button className='clear-button' onClick={this.handleClear}> Clear </button>
-        </span>   
+          <button className='clear-button' onClick={this.handleClear}> Clear </button>
+        </span>
+        <div className='rec-div'>
+          <label className='rec-label'> Record </label>
+          <input type='checkbox' className='rec-check' checked={store.state.recording} onChange={this.handleCheckboxRec} />
         </div>
+      </div>
     )
   }
 }

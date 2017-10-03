@@ -3,5 +3,6 @@ export default {
     keypressed: '',
     memo:0,
     lastValue:null,
-    textAreaValue:''
+    textAreaValue:'',
+    recording:false
   }

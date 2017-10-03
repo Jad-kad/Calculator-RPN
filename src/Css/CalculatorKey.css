@@ -1,13 +1,13 @@
 .mathTable { 
-  border: 1px solid #10171C;
+  border: 0.5px solid #2D3F4D;
   border-top: none;
   padding-top: 5px #FFFFFF;
   box-shadow: 1px 4px 7px #10171C;
-  width: 350px;
-  height: 460px;
-  padding:25px 15px 15px 15px; 
+  width: 390px;
+  height: 500px;
+  border-bottom: none;
   border-radius: 0px 0px 3px 3px;
-  background: -webkit-gradient(linear, right top, left bottom, from(#2D3F4D), to(#1D2932)); 
+  background: -webkit-gradient(linear, right top, left bottom, from(#384854), to(#1D2932)); 
 }
 .mathTable2 { 
   margin:5px;
@@ -16,9 +16,13 @@
   height: 460px;
   padding:25px 15px 15px 15px; 
   border-radius: 0px 0px 3px 3px;
-  background: -webkit-gradient(linear, right top, left bottom, from(#FFFFFF), to(#1D2932)); 
 }
-
+.KeyBoardPad{
+  padding:25px 15px 20px 15px;
+  border: 0px solid black;
+  width: 350px;
+  height: 460px;
+}
 .CalculatorKey {
   font-family: Orbitron,  sans-serif;
   font-size: 10px;
