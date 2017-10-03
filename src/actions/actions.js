@@ -1,5 +1,6 @@
 import store from '../store'
 import * as C from '../calculator-codes/ProgramTextCode'
+import * as KC from '../calculator-codes/KeyCodes'
 
 export function operations(keyCode) {
 
@@ -71,26 +72,26 @@ export function operations(keyCode) {
     localStack[0] = localStack[0] + keyCode.toString()
   }
   switch (keyCode) {
-    case "clr":
+    case KC.CLR:
       localStack = [0, 0, 0, 0]
       operation = ''
       localLastValue = null
 
       break
-    case "clx":
+    case KC.CLX:
       localStack[0] = 0;
       localLastValue = null
       break;
-    case "rollDown":
+    case KC.ROLL_DOWN:
       localStack = [y, z, t, x];
       localLastValue = null
       operation = keyCode
       break
-    case 'pi':
+    case KC.PI:
       localStack = [Math.PI, y, z, t]
       operation = keyCode
       break
-    case "enter":
+    case KC.ENTER:
       if (store.state.keypressed === 'eex') {
         let be = Number(x.slice(0, x.indexOf('e')))
         let ae = Number(x.slice(x.indexOf('e') + 1, x.length))
@@ -108,33 +109,33 @@ export function operations(keyCode) {
       }
       // keyStatus=true;
       break
-    case "swap":
+    case KC.SWAP:
       localStack = [y, x, z, t]
       localLastValue = null
       operation = keyCode
       // keyStatus=true                            
       break
-    case "add":
+    case KC.ADD:
       x = parseFloat(y) + parseFloat(x)
       operation = keyCode
       reOrderBasicOperation()
       break
-    case "sub":
+    case KC.SUB:
       x = parseFloat(y) - parseFloat(x)
       operation = keyCode
       reOrderBasicOperation()
       break
-    case "mul":
+    case KC.MUL:
       x = parseFloat(y) * parseFloat(x)
       operation = keyCode
       reOrderBasicOperation()
       break
-    case "div":
+    case KC.DIV:
       x = parseFloat(y) / parseFloat(x)
       operation = keyCode
       reOrderBasicOperation()
       break
-    case ".":
+    case KC.DOT:
       var strn = (x).toString()
       if (!(strn).includes('.')) {
         localStack[0] = x + '.'
@@ -149,7 +150,7 @@ export function operations(keyCode) {
         localStack = [x, y, z, t]
       }
       break
-    case 'cos':
+    case KC.COS:
       if (operation === 'arc') {
         localStack[0] = covertToDegree(Math.acos(Number(x)))
       } else {
@@ -157,7 +158,7 @@ export function operations(keyCode) {
       }
       operation = keyCode
       break
-    case 'sin':
+    case KC.SIN:
       if (operation === 'arc') {
         localStack[0] = covertToDegree(Math.asin(Number(x)))
       } else {
@@ -165,7 +166,7 @@ export function operations(keyCode) {
       }
       operation = keyCode
       break
-    case 'tan':
+    case KC.TAN:
       if (operation === 'arc') {
         localStack[0] = covertToDegree(Math.atan(Number(x)))
       } else {
@@ -173,15 +174,15 @@ export function operations(keyCode) {
       }
       operation = keyCode
       break
-    case 'pow':
+    case KC.POW:
       localStack = [Math.pow(y, x), z, t, t]
       operation = keyCode
       break
-    case 'sqrt':
+    case KC.SQRT:
       localStack = [Math.sqrt(x), y, z, t]
       operation = keyCode
       break
-    case 'reciprocal':
+    case KC.RECIPROCAL:
       if (x === 0 || x === '0') {
         localStack = ['Error', y, z, t]
       } else {
@@ -192,19 +193,19 @@ export function operations(keyCode) {
         operation = keyCode
       }
       break
-    case 'exp':
+    case KC.EXP:
       localStack = [Math.exp(Number(x)), y, z, t]
       operation = keyCode
       break
-    case 'log':
+    case KC.LOG:
       localStack = [Math.log10(Number(x)), y, z, t]
       operation = keyCode
       break
-    case 'ln':
+    case KC.LN:
       localStack = [Math.log(Number(x)), y, z, t]
       operation = keyCode
       break
-    case 'sto':
+    case KC.STO:
       if (store.state.keypressed === 'sto') {
         return
       } else {
@@ -213,11 +214,11 @@ export function operations(keyCode) {
         operation = keyCode
       }
       break
-    case 'rcl':
+    case KC.RCL:
       localStack = [store.state.memo, x, y, z]
       operation = keyCode
       break
-    case 'chs':
+    case KC.CHS:
       if (store.state.keypressed === 'eex') {
         if (x.indexOf('e') !== -1) {
           let tmp = setCharAt(x, x.indexOf('e') + 1)
@@ -229,7 +230,7 @@ export function operations(keyCode) {
       }
       break
     // we still didnt figure it out eex 
-    case 'eex':
+    case KC.EEX:
       if (store.state.keypressed === 'eex') {
         return
       }
@@ -242,11 +243,12 @@ export function operations(keyCode) {
         operation = keyCode
       }
       break
-    default: //console.log("undefined selction")
+    default:
   }
 
   if (recording) {
-    if (keyCode === 'enter') {
+
+    if (keyCode === KC.ENTER) {
 
       console.log(progLine.substring(progLine.length - 1))
 
@@ -254,10 +256,10 @@ export function operations(keyCode) {
 
     } if (progLine.substring(progLine.length - 1) === '\n') {
 
-      if (keyCode !== 'enter' && (!Number(keyCode) && keyCode !== '0')) {
+      if (keyCode !== KC.ENTER && (!Number(keyCode) && keyCode !== '0')) {
         progLine = progLine + x + '\n' + keyCode + '\n'
       }
-      console.log('there is enter')
+
 
     }
 

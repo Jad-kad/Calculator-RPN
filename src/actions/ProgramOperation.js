@@ -6,7 +6,8 @@ export default function programOperation(newProg) {
 
     let textValue = store.state.textAreaValue,
         
-        newArray = textValue.split(/\n/)
+        newArray1 = textValue.replace(/^\s*\n/gm, ""),
+        newArray = newArray1.split(/\n/)
 
     console.log('text value', newArray)
     for (let i = 0; i < newArray.length; i++) {
