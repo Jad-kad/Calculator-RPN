@@ -1,39 +1,44 @@
-import store from '../components/store'
+import store from '../store'
+import * as C from '../calculator-codes/ProgramTextCode'
 
-export function operations(keyCode ,label) {
-  checkLabelAndKeyCode()
+export function operations(keyCode) {
+
   let [x, y, z, t] = store.state.stack,
     localStack = [x, y, z, t],
     operation = store.state.keypressed,
-    localBuffer = store.state.buffer,
     localLastValue = store.state.lastValue,
-    localMemo = store.state.memo
+    localMemo = store.state.memo,
+    recording = store.state.recording,
+    progLine = store.state.textAreaValue
+
+
 
   if (store.state.keypressed === true) {
+    console.log('if statement222', keyCode)
     reOrder()
     store.setState({
       keypressed: false
     })
   }
-  if (Number(keyCode) && store.state.lastValue !== null &&
+  if ((Number(keyCode) || keyCode === '0') &&
     (store.state.keypressed === 'sin' ||
-    store.state.keypressed === 'cos' ||
-    store.state.keypressed === 'tan' ||
-    store.state.keypressed === 'add' ||
-    store.state.keypressed === 'sub' ||
-    store.state.keypressed === 'mul' ||
-    store.state.keypressed === 'div' ||
-    store.state.keypressed === 'sqrt' ||
-    store.state.keypressed === 'reciprocal' ||
-    store.state.keypressed === 'pow' ||
-    store.state.keypressed === 'log' ||
-    store.state.keypressed === 'exp' ||
-    store.state.keypressed === 'ln' ||
-    store.state.keypressed === 'pi' ||
-    store.state.keypressed === 'sto' ||
-    store.state.keypressed === 'rcl' ||
-    store.state.keypressed === 'rollDown' ||
-    store.state.keypressed === 'swap')) {
+      store.state.keypressed === 'cos' ||
+      store.state.keypressed === 'tan' ||
+      store.state.keypressed === 'add' ||
+      store.state.keypressed === 'sub' ||
+      store.state.keypressed === 'mul' ||
+      store.state.keypressed === 'div' ||
+      store.state.keypressed === 'sqrt' ||
+      store.state.keypressed === 'reciprocal' ||
+      store.state.keypressed === 'pow' ||
+      store.state.keypressed === 'log' ||
+      store.state.keypressed === 'exp' ||
+      store.state.keypressed === 'ln' ||
+      store.state.keypressed === 'pi' ||
+      store.state.keypressed === 'sto' ||
+      store.state.keypressed === 'rcl' ||
+      store.state.keypressed === 'rollDown' ||
+      store.state.keypressed === 'swap')) {
     localStack = [x, x, y, z]
     localStack[0] = '';
     operation = null
@@ -41,7 +46,7 @@ export function operations(keyCode ,label) {
   if (store.state.lastValue === 'Error') {
     localLastValue = null
   }
-  if (store.state.keypressed === "eex" && Number(keyCode) && !(Number.isSafeInteger(x))) {
+  if (store.state.keypressed === "eex" && (Number(keyCode) || keyCode === '0') && !(Number.isSafeInteger(x))) {
     if ((x.length - x.indexOf('e')) === 4) {
       return
     }
@@ -52,18 +57,18 @@ export function operations(keyCode ,label) {
       console.log("eexValue", eexValue)
       localStack = [eexValue, y, z, t]
     }
-    localLastValue = 0
+    localLastValue = '0'
   }
   //else if(store.state.keypressed ==="eex" && and )
-  checkLabelAndKeyCode()
-  if (Number(keyCode) && store.state.lastValue === null) {
-    // console.log("++++++++++++++++++++++++++++++")
-    localLastValue = label
+  // checkLabelAndKeyCode()
+  if ((Number(keyCode) || keyCode === '0') && store.state.lastValue === null) {
+    localLastValue = keyCode
     localStack[0] = '';
-    localStack[0] = localStack[0] + label.toString()
-    // console.log('Key Pressed is a number=', label)
-  } else if (Number(keyCode) && store.state.lastValue !== null) {
-    localStack[0] = localStack[0] + label.toString()
+    localStack[0] = localStack[0] + keyCode.toString()
+
+  } else if ((Number(keyCode) || keyCode === '0') && store.state.lastValue !== null) {
+
+    localStack[0] = localStack[0] + keyCode.toString()
   }
   switch (keyCode) {
     case "clr":
@@ -82,7 +87,7 @@ export function operations(keyCode ,label) {
       operation = keyCode
       break
     case 'pi':
-      localStack = [Math.PI, y, z, t]   
+      localStack = [Math.PI, y, z, t]
       operation = keyCode
       break
     case "enter":
@@ -104,14 +109,14 @@ export function operations(keyCode ,label) {
       // keyStatus=true;
       break
     case "swap":
-        localStack = [y, x, z, t]
-        localLastValue = null
-        operation = keyCode
+      localStack = [y, x, z, t]
+      localLastValue = null
+      operation = keyCode
       // keyStatus=true                            
       break
     case "add":
       x = parseFloat(y) + parseFloat(x)
-        operation = keyCode
+      operation = keyCode
       reOrderBasicOperation()
       break
     case "sub":
@@ -213,15 +218,17 @@ export function operations(keyCode ,label) {
       operation = keyCode
       break
     case 'chs':
-      if (x.indexOf('e') !== -1) {
-        let tmp = setCharAt(x, x.indexOf('e') + 1)
-        localStack = [tmp, y, z, t]
+      if (store.state.keypressed === 'eex') {
+        if (x.indexOf('e') !== -1) {
+          let tmp = setCharAt(x, x.indexOf('e') + 1)
+          localStack = [tmp, y, z, t]
+        }
       } else {
         localStack = [-1 * x, y, z, t]
         operation = keyCode
       }
       break
-      // we still didnt figure it out eex 
+    // we still didnt figure it out eex 
     case 'eex':
       if (store.state.keypressed === 'eex') {
         return
@@ -229,6 +236,7 @@ export function operations(keyCode ,label) {
       if (x === 0) {
         localStack = [1 + 'e+0', y, z, t]
         operation = keyCode
+        localLastValue = keyCode
       } else {
         localStack = [x + 'e+0', y, z, t]
         operation = keyCode
@@ -236,22 +244,42 @@ export function operations(keyCode ,label) {
       break
     default: //console.log("undefined selction")
   }
+
+  if (recording) {
+    if (keyCode === 'enter') {
+
+      console.log(progLine.substring(progLine.length - 1))
+
+      progLine = progLine + x + '\n'
+
+    } if (progLine.substring(progLine.length - 1) === '\n') {
+
+      if (keyCode !== 'enter' && (!Number(keyCode) && keyCode !== '0')) {
+        progLine = progLine + x + '\n' + keyCode + '\n'
+      }
+      console.log('there is enter')
+
+    }
+
+  }
+
+
+
+
   store.setState({
     stack: localStack,
     keypressed: operation,
     keyStatus: true,
-    lastValue : localLastValue,
-    memo : localMemo
+    lastValue: localLastValue,
+    memo: localMemo,
+    textAreaValue: progLine
   })
-  //to re order the stack ater the basic operators +,-,*,/
   function reOrderBasicOperation() {
     localStack = [x, z, t, 0]
   }
-  localBuffer = localStack[0]
   function reOrder() {
     store.setState({
-      lastValue: null,
-      buffer :localBuffer
+      lastValue: null
     })
   }
   function convertToRadians(degrees) {
@@ -263,18 +291,12 @@ export function operations(keyCode ,label) {
   function setCharAt(str, index) {
     console.log("str:", str, "  Index : ", index)
     if (str[index] === '+') {
-      // console.log(str.substr(0, index) + '-' + str.substr(index + 1))
       operation = "eex"
       return str.substr(0, index) + '-' + str.substr(index + 1);
     } else {
-      // console.log(str.substr(0, index) + '-' + str.substr(index + 1))
       operation = "eex"
       return str.substr(0, index) + '+' + str.substr(index + 1);
     }
   }
-  function checkLabelAndKeyCode() {
-    // console.log("label=", label, "--keycode", keyCode, "LastValu=", store.state.lastValue)
-    // console.log("============================")
-  }
-  // console.log("The End of Operation File")
+
 }
