@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import * as action from '../actions/actions'
 import '../Css/CalculatorKey.css'
 
-
 export default class CalculatorKey extends React.Component {
 
 	static propTypes = {

@@ -41,8 +41,7 @@ export function operations(keyCode) {
     }
     localLastValue = '0'
   }
-  //else if(store.state.keypressed ==="eex" && and )
-  // checkLabelAndKeyCode()
+
   if ((Number(keyCode) || keyCode === '0') && store.state.lastValue === null) {
     localLastValue = keyCode
     localStack[0] = '';
@@ -77,24 +76,18 @@ export function operations(keyCode) {
         let be = Number(x.slice(0, x.indexOf('e')))
         let ae = Number(x.slice(x.indexOf('e') + 1, x.length))
         let res = (be * (Math.pow(10, ae)))
-        console.log("the number Befor e", be)
-        console.log("the number after e", ae)
-        console.log("the number rsult", res)
         localStack = [res, res, y, z]
         localLastValue = null
         operation = 'Enter'
-        // operation = value
       } else {
         localStack = [x, x, y, z]
         localLastValue = null
       }
-      // keyStatus=true;
-      break
+    break
     case KC.SWAP:
       localStack = [y, x, z, t]
       localLastValue = null
       operation = keyCode
-      // keyStatus=true                            
       break
     case KC.ADD:
       x = parseFloat(y) + parseFloat(x)
@@ -210,7 +203,6 @@ export function operations(keyCode) {
         operation = keyCode
       }
       break
-    // we still didnt figure it out eex 
     case KC.EEX:
       if (store.state.keypressed === 'eex') {
         return
@@ -240,14 +232,9 @@ export function operations(keyCode) {
       if (keyCode !== KC.ENTER && (!Number(keyCode) && keyCode !== '0')) {
         progLine = progLine + x + '\n' + keyCode + '\n'
       }
-
-
     }
 
   }
-
-
-
 
   store.setState({
     stack: localStack,
@@ -257,6 +244,7 @@ export function operations(keyCode) {
     memo: localMemo,
     textAreaValue: progLine
   })
+
   function reOrderBasicOperation() {
     localStack = [x, z, t, 0]
   }
