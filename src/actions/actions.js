@@ -1,5 +1,4 @@
 import store from '../store'
-import * as C from '../calculator-codes/ProgramTextCode'
 import * as KC from '../calculator-codes/KeyCodes'
 
 export function operations(keyCode) {
@@ -10,36 +9,19 @@ export function operations(keyCode) {
     localLastValue = store.state.lastValue,
     localMemo = store.state.memo,
     recording = store.state.recording,
-    progLine = store.state.textAreaValue
-
-
+    progLine = store.state.textAreaValue,
+    operationCodes = [KC.SIN,KC.COS,KC.TAN,KC.ADD,KC.MUL,
+                      KC.DIV,KC.SQRT,KC.RECIPROCAL,
+                      KC.POW,KC.LOG,KC.EXP,KC.LN,KC.PI,
+                      KC.STO,KC.RCL,KC.ROLL_DOWN,KC.SWAP]
 
   if (store.state.keypressed === true) {
-    console.log('if statement222', keyCode)
     reOrder()
     store.setState({
       keypressed: false
     })
   }
-  if ((Number(keyCode) || keyCode === '0') &&
-    (store.state.keypressed === 'sin' ||
-      store.state.keypressed === 'cos' ||
-      store.state.keypressed === 'tan' ||
-      store.state.keypressed === 'add' ||
-      store.state.keypressed === 'sub' ||
-      store.state.keypressed === 'mul' ||
-      store.state.keypressed === 'div' ||
-      store.state.keypressed === 'sqrt' ||
-      store.state.keypressed === 'reciprocal' ||
-      store.state.keypressed === 'pow' ||
-      store.state.keypressed === 'log' ||
-      store.state.keypressed === 'exp' ||
-      store.state.keypressed === 'ln' ||
-      store.state.keypressed === 'pi' ||
-      store.state.keypressed === 'sto' ||
-      store.state.keypressed === 'rcl' ||
-      store.state.keypressed === 'rollDown' ||
-      store.state.keypressed === 'swap')) {
+  if ((Number(keyCode) || keyCode === '0') && (operationCodes.indexOf(operation) > -1 )) {
     localStack = [x, x, y, z]
     localStack[0] = '';
     operation = null
@@ -51,8 +33,7 @@ export function operations(keyCode) {
     if ((x.length - x.indexOf('e')) === 4) {
       return
     }
-    // operation =value
-    // if the last char in the x is 0 replace the 0 with the new value
+    // if last char in x is 0 replace the 0 with the new value
     if (x[x.length - 1] === '0') {
       let eexValue = x.slice(0, (x.length - 1))
       console.log("eexValue", eexValue)
