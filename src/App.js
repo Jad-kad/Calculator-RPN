@@ -4,6 +4,7 @@ import store from './store'
 import DisplayScreen from './components/DisplayScreen'
 import KeyBoard from './components/KeyBoard'
 import ProgramPlatform from './components/ProgramPlatform'
+import AppBar from 'material-ui/styles'
 
 
 class App extends React.Component {
@@ -16,17 +17,16 @@ class App extends React.Component {
    store.subscription.remove();
  }
 
-  render() {
-    return (
+  render = () =>  
+    
       <div className="calculatorBody">
         <div>
        <DisplayScreen />
        <KeyBoard />
         </div>
-          <ProgramPlatform /> 
-      </div>  
-    )
-  }
+          <ProgramPlatform />
+      </div>   
+
 }
 
 export default App;
