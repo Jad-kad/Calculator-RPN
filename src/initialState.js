@@ -1,6 +1,7 @@
 export default {
     stack:[0,0,0,0],
-    keypressed: '',
+    operation:'',
+    keyPressed: '',
     memo:0,
     lastValue:null,
     textAreaValue:'',

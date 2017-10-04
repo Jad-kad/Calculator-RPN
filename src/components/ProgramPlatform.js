@@ -21,8 +21,8 @@ export default class ProgramPlatform extends React.Component {
   }
 
   handleSubmit(event) {
-    programOperation(store.state.textAreaValue)
     event.preventDefault()
+    programOperation()  
   }
 
   handleClear() {
