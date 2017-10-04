@@ -101,7 +101,7 @@
 .CalculatorKey.KeyPad-9,
 .CalculatorKey.KeyPad-0,
 .CalculatorKey.KeyPad-pi,
-.CalculatorKey.KeyPad-\. {
+.CalculatorKey.KeyPad-dot {
   font-family:   Orbitron;
   outline:none;
   font-size: 17px;
@@ -129,7 +129,7 @@
 .CalculatorKey.KeyPad-9:active,
 .CalculatorKey.KeyPad-0:active,
 .CalculatorKey.KeyPad-pi:active,
-.CalculatorKey.KeyPad-\.:active {
+.CalculatorKey.KeyPad-dot:active {
   background: #afafaf;
   background: -webkit-gradient(linear, 0 0, 0 bottom, from(#afafaf), to(#C5DBD3));
   background: -moz-linear-gradient(#afafaf, #C5DBD3);

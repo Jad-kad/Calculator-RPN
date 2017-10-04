@@ -1,11 +1,6 @@
-import * as C from './KeyCodes'
+import {KC} from './KeyCodes'
 
-export  const textObject = {'add':C.ADD, 'sin':C.SIN, 'cos':C.COS, 'arc':C.ARC,
-                            'asin':C.ASIN, 'acos':C.ACOS, 'atasn':C.ATAN ,'chs':C.CHS,
-                            'clr':C.CLR, 'clx':C.CLX, '.':C.DOT,
-                             '0':C.D0 , '1':C.D1, '2':C.D2, '3':C.D3, '4':C.D4,
-                            '5':C.D5, '6':C.D6, '7':C.D7, '8':C.D8, '9':C.D9,
-                            'div':C.DIV, 'eex':C.EEX, 'ln':C.LN, 'log':C.LOG,
-                            'mul':C.MUL, 'pi':C.PI, 'pow':C.POW, 'rcl':C.RCL,
-                            'reciprocal':C.RECIPROCAL, 'rollDown':C.ROLL_DOWN,'sqrt':C.SQRT,'sto':C.STO,
-                            'sub':C.SUB,'swap':C.SWAP  }
+export const textObject1 =  [KC.SIN,KC.COS,KC.ARC,KC.ASIN,KC.CLX,KC.DOT,KC.D0,KC.D1,
+                            KC.D2,KC.D3,KC.D4,KC.D5,KC.D6,KC.D7,KC.D8,KC.D9,KC.DIV,KC.EEX,KC.LN,
+                            KC.LOG,KC.MUL,KC.PI,KC.POW,KC.RCL,KC.RECIPROCAL,KC.ROLL_DOWN,KC.SQRT,KC.STO,
+                            KC.ACOS,KC.ADD,KC.ATAN,KC.CHS,KC.CLR,KC.ENTER,KC.EXP,KC.SUB,KC.SWAP]

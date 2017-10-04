@@ -1,75 +1,81 @@
-export const ACOS = "acos";
+export const KC = {
+  ACOS: 'acos',
+  ADD: '+',
+  ASIN: 'asin',
+  ATAN: 'atan',
+  CHS: 'chs',
+  CLR: 'clr',
+  CLX: 'clx',
+  CONST: 'const',
+  COS: 'cos',
+  DOT: 'dot',
+  D0: '0',
+  D1: '1',
+  D2: '2',
+  D3: '3',
+  D4: '4',
+  D5: '5',
+  D6: '6',
+  D7: '7',
+  D8: '8',
+  D9: '9',
+  DIV: '/',
+  EEX: 'eex',
+  ENTER: 'enter',
+  EXP: 'e^x',
+  LN: 'ln',
+  LOG: 'log',
+  MUL: '*',
+  PI: 'pi',
+  POW: 'y^x',
+  RCL: 'rcl',
+  ROLL_DOWN: 'rollDown',
+  SIN: 'sin',
+  SQRT: 'sqrt',
+  STO: 'sto',
+  SUB: '-',
+  SWAP: '<>',
+  TAN: 'tan',
 
-export const ADD = "add";
+  // deprecated:
+  ARC: 'arc',                 // Replaced by SHIFT_UP and SHIFT_DOWN
+  RECIPROCAL: 'reciprocal',   // Replaced by INV
+  SQR: 'x^2',                 // Replaced by SQ
 
-export const ARC = "arc";
+  SHIFT_UP: 'shiftUp',        // Activates up-shifted key functions
+  SHIFT_DOWN: 'shiftDown',    // Activates down-shifted key functions
 
-export const ASIN = "asin";
-
-export const ATAN = "atan";
-
-export const CHS = "chs";
-
-export const CLR = "clr";
-
-export const CLX = "clx";
-
-export const COS = "cos";
-
-export const DOT = ".";
-
-export const D0 = "0";
-
-export const D1 = "1";
-
-export const D2 = "2";
-
-export const D3 = "3";
-
-export const D4 = "4";
-
-export const D5 = "5";
-
-export const D6 = "6";
-
-export const D7 = "7";
-
-export const D8 = "8";
-
-export const D9 = "9";
-
-export const DIV = "div";
-
-export const EEX = "eex";
-
-export const ENTER = "enter";
-
-export const EXP = "exp";
-
-export const LN = "ln";
-
-export const LOG = "log";
-
-export const MUL = "mul";
-
-export const PI = "pi";
-
-export const POW = "pow";
-
-export const RCL = "rcl";
-
-export const RECIPROCAL = "reciprocal";
-
-export const ROLL_DOWN = "rollDown";
-
-export const SIN = "sin";
-
-export const SQRT = "sqrt";
-
-export const STO = "sto";
-
-export const SUB = "sub";
-
-export const SWAP = "swap";
-
-export const TAN = "tan";
+  // New math functions. See page G2 ff. of the HP 35 Users Guide
+  ABS: 'abs',           // Absolute value
+  ACOSH: 'acosh',       // Hyperbolic arc cosine
+  ALOG: 'alog',         // 10^x (also known as antilog)
+  ASINH: 'asinh',       // Hyperbolic arc sine
+  ATANH: 'atanh',       // Hyperbolic arc tangent
+  COSH: 'cosh',         // Hyperbolic cosine
+  FACT: '!',            // Factorial
+  FP: 'fp',             // Fractional part of x
+  FROM_HMS: 'hms->',    // Converts x from hours–minutes– seconds format to a decimal fraction
+  IDIV: 'idiv',         // Integer division
+  INTG: 'intg',         // Obtains the greatest integer equal to or less than given number
+  INV: '1/x',           // Reciprocal of x
+  IP: 'ip',             // Integer part of x
+  NCR: 'nCr',           // Combinations of n items taken r at a time = n!/(r!(n-r)!)
+  NPR: 'nPr',           // Permutations of n items taken r at a time. Returns n!/(n – r)!
+  PCT: '%',             // (y × x) / 100
+  PCTCHG: '%chg',       // (x - y) (100 / y)
+  SINH: 'sinh',         // Hyperbolic sine
+  SQ: 'x^2',            // x^2
+  TANH: 'tanh',         // Hyperbolic tangent
+  TO_CM: '->cm',        // Convert inches to cm
+  TO_DEG: '->deg',      // Convert radians to degrees
+  TO_DEGREE_C: '->C',   // Convert degree F -> C
+  TO_DEGREE_F: '->F',   // Convert degree C -> F
+  TO_GAL: '->gal',      // Convert liters to gallons
+  TO_HMS: '->hms',      // Converts x from a decimal fraction to hours–minutes–seconds format
+  TO_KG: '->kg',        // Converts miles to kilometers
+  TO_L: '->l',          // Converts gallons to liters
+  TO_LB: '->lb',        // Converts kilograms to pounds
+  TO_MILE: '->mile',    // Converts kilometers to miles
+  TO_RAD: '->rad',      // Degrees to radians. Returns (2π/360) x
+  XROOT: 'xRoot',       // x-th root of y
+}

@@ -1,5 +1,5 @@
 import store from '../store'
-import * as KC from '../calculator-codes/KeyCodes'
+import {KC} from '../calculator-codes/KeyCodes'
 
 export function operations(keyCode) {
 
@@ -36,7 +36,7 @@ export function operations(keyCode) {
     // if last char in x is 0 replace the 0 with the new value
     if (x[x.length - 1] === '0') {
       let eexValue = x.slice(0, (x.length - 1))
-      console.log("eexValue", eexValue)
+      // console.log("eexValue", eexValue)
       localStack = [eexValue, y, z, t]
     }
     localLastValue = '0'
@@ -113,7 +113,7 @@ export function operations(keyCode) {
       var strn = (x).toString()
       if (!(strn).includes('.')) {
         localStack[0] = x + '.'
-        console.log(keyCode)
+        // console.log(keyCode)
       }
       break
     case 'arc':
@@ -223,7 +223,7 @@ export function operations(keyCode) {
 
     if (keyCode === KC.ENTER) {
 
-      console.log(progLine.substring(progLine.length - 1))
+      // console.log(progLine.substring(progLine.length - 1))
 
       progLine = progLine + x + '\n'
 
@@ -260,7 +260,7 @@ export function operations(keyCode) {
     return (radians * 180 / Math.PI)
   }
   function setCharAt(str, index) {
-    console.log("str:", str, "  Index : ", index)
+    // console.log("str:", str, "  Index : ", index)
     if (str[index] === '+') {
       operation = "eex"
       return str.substr(0, index) + '-' + str.substr(index + 1);
