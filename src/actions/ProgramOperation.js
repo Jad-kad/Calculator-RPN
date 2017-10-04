@@ -1,46 +1,27 @@
 import store from '../store'
 import * as fn from './actions'
-import {textObject1} from '../calculator-codes/ProgramTextCode'
+import validKeyCodes from '../calculator-codes/ProgramTextCode'
 
-export default function programOperation(newProg) {
+export default function programOperation() {
+    const {textAreaValue} = store.state
+    const keyCodes = textAreaValue
+        .replace(/^\s*\n/gm, "")
+        .split(/\n/)
+        .filter(keyCode => keyCode.length > 0)
 
-    let textValue = store.state.textAreaValue,
+    for (let i = 0; i < keyCodes.length; i++) {
+        const keyCode = keyCodes[i]
+        const [x, y, z] = store.state.stack
 
-        newArray1 = textValue.replace(/^\s*\n/gm, ""),
-        newArray = newArray1.split(/\n/)
-
-    // console.log('text value', newArray)
-
-    for (let i = 0; i < newArray.length; i++) {
-
-        let [x, y, z, t] = store.state.stack
-
-        if ((Number(newArray[i]) || newArray[i] === '0')) {
-
-            let localStack = [newArray[i], x, y, z]
-
-            store.setState({ stack: localStack, textAreaValue: newProg })
-            
-        } else if (textObject1.indexOf(newArray[i])) {
-            console.log('2222',textObject1.indexOf(newArray[i]))
-            let codeText = newArray[i]
-             console.log('text code', codeText)
-
-            fn.operations(codeText)
-
+        if (Number.isFinite(Number(keyCode))) {
+            const localStack = [keyCode, x, y, z]
+            store.setState({ ...store.state, stack: localStack })
+        } else if (validKeyCodes.indexOf(keyCode) !== -1) {
+            fn.otherOperations(keyCode, store.state)
         } else {
-
-            newArray[i] = newArray[i] + ' => syntax error'
-
-            if (newArray.indexOf('') !== -1) {
-
-                newArray.pop()
-
-                newProg = newArray.join('\n')
-
-                store.setState({ textAreaValue: newProg })
-            }
+            keyCodes[i] = keyCode + ' => syntax error'
+            store.setState({ ...store.state, textAreaValue: keyCodes.join('\n') })
+            break
         }
-
     }
 }

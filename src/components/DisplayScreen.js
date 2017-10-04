@@ -11,7 +11,7 @@ export default class DisplayScreen extends React.Component {
   }
 
   componentWillUnmount() {
-    this.subscription.remove();
+    this.subscription.remove()
   }
 
   render() {
@@ -19,7 +19,7 @@ export default class DisplayScreen extends React.Component {
     return (
       <div className="calculator-display1">
         <div className="calculator-display">
-          <div className="stackDiv">'t {store.state.stack[3]}</div>
+          <div className="stackDiv">t {store.state.stack[3]}</div>
           <div className="stackDiv">z {store.state.stack[2]}</div>
           <div className="stackDiv">y {store.state.stack[1]}</div>
           <div className="stackDiv">x {store.state.stack[0]}</div>
