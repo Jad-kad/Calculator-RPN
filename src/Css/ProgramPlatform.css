@@ -67,24 +67,21 @@
 }
 .rec-check {
   outline:none;
-  border: none;
-  margin-left:-10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left:5px;
   width :50px;
   height: 20px;
-  background: #DDEDE7;
-
-  border-bottom: solid 1px #1E2D27;
-  border-radius: 4px;
-  color:#10171C;
 }
 .rec-label{
   margin-left: 10px;
   color:#d6d6d6;
   font-size: 18px;
-  font-weight: bold;
 }
 .rec-div{
  margin: -26px 0px 0px 0px;
+ width: 50px;
+ display: flex;
 }
 .run-button:active,
 .clear-button:active

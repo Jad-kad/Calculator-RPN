@@ -336,22 +336,37 @@ export function otherOperations(keyCode, state) {
   if (fn) {
     console.log('fn called', keyCode)
     fn(state)
-  } if (store.state.recording === true) {
+  } if (store.state.recording) {
     const [x, ...rest] = store.state.stack
     let textAreaValue = store.state.textAreaValue
+    if(keyCode === KC.CLR){
+      return
+    }
     if (keyCode === KC.ENTER) {
-      textAreaValue = textAreaValue + x + '\n'
+      if (textAreaValue === '') {
+        textAreaValue = textAreaValue + x + '\n'
+        store.setState({ ...state, textAreaValue })
+      } else {
+        textAreaValue = textAreaValue + '\n'
+        store.setState({ ...state, textAreaValue })
+      }
+
+    } if ((Number(keyCode) || keyCode === '0') && textAreaValue !== '') {
+      textAreaValue = textAreaValue + keyCode
       store.setState({ ...state, textAreaValue })
-    } if (textAreaValue.substring(textAreaValue.length - 1) === '\n') {
-      if (keyCode !== KC.ENTER && (!Number(keyCode) && keyCode !== '0')) {
+    }
+    if (keyCode !== KC.ENTER && (!Number(keyCode) && keyCode !== '0')) {
+      if (Number(textAreaValue.substring(textAreaValue.length - 1)) || (textAreaValue.substring(textAreaValue.length - 1) === '0')) {
+        textAreaValue = textAreaValue + '\n' + keyCode + '\n'
+        store.setState({ ...state, textAreaValue })
+      } else {
         textAreaValue = textAreaValue + keyCode + '\n'
         store.setState({ ...state, textAreaValue })
       }
     }
-  } else {
-    console.error()
   }
 }
+
 
 
 

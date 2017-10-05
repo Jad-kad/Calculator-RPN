@@ -2,6 +2,7 @@ import React from 'react'
 import '../Css/ProgramPlatform.css'
 import store from '../store'
 import programOperation from '../actions/ProgramOperation'
+import Checkbox from 'material-ui/Checkbox'
 
 export default class ProgramPlatform extends React.Component {
   componentWillMount() {
@@ -51,7 +52,11 @@ export default class ProgramPlatform extends React.Component {
         </span>
         <div className='rec-div'>
           <label className='rec-label'> Record </label>
-          <input type='checkbox' className='rec-check' checked={store.state.recording} onChange={this.handleCheckboxRec} />
+          <Checkbox
+          className='rec-check'
+          checked={store.state.recording} onCheck={this.handleCheckboxRec}
+        />
+          {/*<input type='checkbox' className='rec-check' checked={store.state.recording} onChange={this.handleCheckboxRec} />*/}
         </div>
       </div>
     )
