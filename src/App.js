@@ -4,7 +4,6 @@ import store from './store'
 import DisplayScreen from './components/DisplayScreen'
 import KeyBoard from './components/KeyBoard'
 import ProgramPlatform from './components/ProgramPlatform'
-import AppBar from 'material-ui/AppBar'
 
 
 class App extends React.Component {
