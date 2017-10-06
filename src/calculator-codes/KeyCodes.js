@@ -78,4 +78,7 @@ export const KC = {
   TO_MILE: '->mile',    // Converts kilometers to miles
   TO_RAD: '->rad',      // Degrees to radians. Returns (2π/360) x
   XROOT: 'xRoot',       // x-th root of y
+
+  // switch key function
+  SWITCH_FN:'switchFn'
 }

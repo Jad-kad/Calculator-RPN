@@ -4,7 +4,7 @@ import { KC } from '../calculator-codes/KeyCodes'
 const operationCodes = [KC.SIN, KC.COS, KC.TAN, KC.ADD, KC.MUL,
 KC.DIV, KC.SQRT, KC.RECIPROCAL,
 KC.POW, KC.LOG, KC.EXP, KC.LN, KC.PI,
-KC.STO, KC.RCL, KC.ROLL_DOWN, KC.SWAP, KC.SUB]
+KC.STO, KC.RCL, KC.ROLL_DOWN, KC.SWAP, KC.SUB, KC.ALOG,KC.PCT]
 
 const inputDigit = digit => state => {
   const [x, ...rest] = state.stack
@@ -293,6 +293,25 @@ const pi = state => {
   store.setState({ ...state, stack, operation })
 }
 
+const switchFN = state => {
+  let switchKey = store.state.switchKey
+  switchKey === false ? switchKey = true : switchKey = false
+  store.setState({ ...state, switchKey })
+}
+
+const alog = state => {
+  const [x, y, z, t] = store.state.stack
+  const stack = [Math.pow(10, Number(x)), y, z, t]
+  const operation = KC.ALOG
+  store.setState({ ...state, stack, operation })
+}
+
+const pct = state => {
+  const [x, y, z, t] = store.state.stack
+  const stack = [Number(y)*Number(x)/100, z, t, 0]
+  const operation = KC.ALOG
+  store.setState({ ...state, stack, operation })
+}
 const instructions = {
   [KC.D0]: inputDigit(0),
   [KC.D1]: inputDigit(1),
@@ -329,6 +348,9 @@ const instructions = {
   [KC.SIN]: sin,
   [KC.TAN]: tan,
   [KC.PI]: pi,
+  [KC.SWITCH_FN]: switchFN,
+  [KC.ALOG]: alog,
+  [KC.PCT]: pct
 }
 
 export function otherOperations(keyCode, state) {
@@ -339,7 +361,7 @@ export function otherOperations(keyCode, state) {
   } if (store.state.recording) {
     const [x, ...rest] = store.state.stack
     let textAreaValue = store.state.textAreaValue
-    if(keyCode === KC.CLR){
+    if (keyCode === KC.CLR || keyCode === KC.SWITCH_FN) {
       return
     }
     if (keyCode === KC.ENTER) {

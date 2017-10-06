@@ -5,5 +5,6 @@ export default {
     memo:0,
     lastValue:null,
     textAreaValue:'',
-    recording:false
+    recording:false,
+    switchKey:true
   }

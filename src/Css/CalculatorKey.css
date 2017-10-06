@@ -1,94 +1,113 @@
-.mathTable { 
-  border: 0.5px solid #2D3F4D;
-  border-top: none;
-  padding-top: 5px #FFFFFF;
-  box-shadow: 1px 4px 7px #10171C;
-  width: 390px;
-  height: 500px;
-  border-bottom: none;
-  border-radius: 0px 0px 3px 3px;
-  background: -webkit-gradient(linear, right top, left bottom, from(#384854), to(#1D2932)); 
+.mathTable {
+    padding-top: 2px;
+    width: 390px;
+    height: 520px;
+    background: #171F23;
 }
-.mathTable2 { 
-  margin:5px;
-  box-shadow: 1px 4px 7px #10171C;
-  width: 300px;
-  height: 460px;
-  padding:25px 15px 15px 15px; 
-  border-radius: 0px 0px 3px 3px;
+
+.mathTable2 {
+    margin: 5px;
+    box-shadow: 1px 4px 7px #10171C;
+    width: 300px;
+    height: 460px;
+    padding: 25px 15px 15px 15px;
+    border-radius: 0px 0px 3px 3px;
 }
-.KeyBoardPad{
-  padding:25px 15px 20px 15px;
-  border: 0px solid black;
-  width: 350px;
-  height: 460px;
+
+.KeyBoardPad {
+    padding: 8px 15px 20px 15px;
+    border: 0px solid black;
+    width: 350px;
+    height: 460px;
 }
+
 .CalculatorKey {
-  font-family: Orbitron,  sans-serif;
-  font-size: 10px;
-  margin: 12px 10px;
-  border: none;
-  width :50px;
-  height: 35px;
-  color:#FFFFFF;
-  background: linear-gradient(#374750, #171F23);
-  box-shadow: inset 0 0 0 0.5px #66696b;
-  border-radius: 3px 3px 3px 2px; 
-  outline:none;
-  letter-spacing: 1px; 
-  box-shadow: 1px 1px 2px #10171C;
+    font-family: Verdana;
+    font-size: 10px;
+    margin: 13px 10px;
+    border: none;
+    width: 50px;
+    height: 35px;
+    color: #FFFFFF;
+    border-radius: 3px 3px 3px 2px;
+    outline: none;
+    letter-spacing: 1px;
+    background: #32424A;
 }
 
 .CalculatorKey:active,
 .CalculatorKey.KeyPad-enter:active,
-.CalculatorKey.KeyPad-chs:active, 
+.CalculatorKey.KeyPad-chs:active,
 .CalculatorKey.KeyPad-eex:active,
 .CalculatorKey.KeyPad-clx:active,
 .CalculatorKey.KeyPad-sub:active,
 .CalculatorKey.KeyPad-mul:active,
 .CalculatorKey.KeyPad-div:active,
-.CalculatorKey.KeyPad-add:active{
-    background: #f06a7c;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#374750), to(#3E4D55));}
+.CalculatorKey.KeyPad-add:active {
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#374750), to(#3E4D55));
+}
+
+.CalculatorKey.KeyPad-y\^x,
+.CalculatorKey.KeyPad-log,
+.CalculatorKey.KeyPad-ln,
+.CalculatorKey.KeyPad-e\^x,
+.CalculatorKey.KeyPad-clr {
+    font-family: Verdana;
+    font-size: 11px;
+    margin: 13px 10px;
+    margin-top: 3px;
+    border: none;
+    width: 50px;
+    height: 35px;
+    color: #FFFFFF;
+    border-radius: 3px 3px 3px 2px;
+    outline: none;
+    letter-spacing: 1px;
+    background: #32424A;
+}
 
 .CalculatorKey.KeyPad-enter {
-  width :120px;
-  height: 35px;
-  font-size: 11px;
-  color:#FFFFFF;
-  background: linear-gradient(#303C41, #171F23);
-  box-shadow: inset 0 0 0 0.5px #66696b;
-  border-radius: 3px 3px 3px 2px ;
-  outline:none;
-  box-shadow: 1px 1px 2px #10171C;
+    width: 120px;
+    height: 35px;
+    font-size: 14px;
+    color: #171F23;
+    background: #FF9100;
+    border-radius: 3px 3px 3px 2px;
+    outline: none;
+    font-weight: bold;
 }
 
-.CalculatorKey.KeyPad-chs, 
+.CalculatorKey.KeyPad-chs,
 .CalculatorKey.KeyPad-eex,
-.CalculatorKey.KeyPad-clx{
-  color:#FFFFFF;
-  font-size: 11px;
-  background: linear-gradient(#374750, #171F23);
-  border-radius: 3px 3px 3px 3px;
-  outline:none;
-  box-shadow: 1px 1px 2px #10171C;   
+.CalculatorKey.KeyPad-clx {
+    color: #FFFFFF;
+    font-size: 11px;
+    background: #1C2429;
+    border-radius: 3px 3px 3px 3px;
+    outline: none;
 }
 
-.CalculatorKey.KeyPad-sub,
-.CalculatorKey.KeyPad-mul,
-.CalculatorKey.KeyPad-div,
-.CalculatorKey.KeyPad-add {
-  width:40px;
-  height: 30px;
-  font-size: 14px;
-  margin-right: 20px;
-  color:#FFFFFF;
-  background: linear-gradient(#303C41, #171F23);
-  box-shadow: 1px 1px 2px #10171C;
-  text-shadow: none;
-  outline:none;
+.CalculatorKey.KeyPad-abs {
+    font-family: Verdana;
+    font-size: 15px;
+}
 
-} 
+.CalculatorKey.KeyPad-\*,
+.CalculatorKey.KeyPad-\+,
+.CalculatorKey.KeyPad--,
+.CalculatorKey.KeyPad-\/ {
+    font-family: Verdana;
+    font-size: 15px;
+    margin: 12px 10px;
+    border: none;
+    width: 50px;
+    height: 35px;
+    color: #FFFFFF;
+    border-radius: 3px 3px 3px 2px;
+    outline: none;
+    letter-spacing: 1px;
+    background: #32424A;
+}
 
 .CalculatorKey.KeyPad-1,
 .CalculatorKey.KeyPad-2,
@@ -102,20 +121,18 @@
 .CalculatorKey.KeyPad-0,
 .CalculatorKey.KeyPad-pi,
 .CalculatorKey.KeyPad-dot {
-  font-family:   Orbitron;
-  outline:none;
-  font-size: 17px;
-  margin: 10px 10px 5px 15px;
-  border: none;
-  width :45px;
-  height: 35px;
-  background: #DDEDE7;
-  background: linear-gradient(#DDEDE7, #DDEDE7);
-  box-shadow: 1px 1px 2px #10171C;
-  color: #1F2626;
-  text-shadow: 0 1px 0 #d6d6d6;
-  border-radius: 4px 4px 4px 4px;
-} 
+    font-family: Verdana;
+    outline: none;
+    font-size: 17px;
+    margin: 10px 10px 5px 15px;
+    border: none;
+    width: 45px;
+    height: 35px;
+    background: #9C8E57;
+    box-shadow: 1px 1px 2px #10171C;
+    color: #171F23;
+    border-radius: 4px 4px 4px 4px;
+}
 
 .CalculatorKey.KeyPad-1:active,
 .CalculatorKey.KeyPad-2:active,
@@ -129,9 +146,52 @@
 .CalculatorKey.KeyPad-0:active,
 .CalculatorKey.KeyPad-pi:active,
 .CalculatorKey.KeyPad-dot:active {
-  background: #afafaf;
-  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#afafaf), to(#C5DBD3));
-  background: -moz-linear-gradient(#afafaf, #C5DBD3);
-  background: linear-gradient(#afafaf, #C5DBD3);
-  box-shadow: inset 0 10px 15px 0 #C5DBD3;
+    background: #635931;
+}
+
+.KeyPad-switchFn {
+    font-size: 15px;
+    color: #FF9100;
+}
+
+.CalculatorKey.KeyPad-alog,
+.CalculatorKey.KeyPad-\% {
+    font-family: Verdana;
+    font-size: 10px;
+    margin: 3px 10px 12px 10px;
+    border: none;
+    width: 50px;
+    height: 35px;
+    color: #171F23;
+    border-radius: 3px 3px 3px 2px;
+    outline: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: #FF9100;
+}
+
+.CalculatorKey.KeyPad-alog:active {
+    background: #635931;
+}
+
+.seconday-function {
+    float: left;
+    color: #FF9100;
+    margin-left: 30px;
+    margin-right: 20px;
+    font-size: 11px;
+}
+
+.secondary-function-row1 {
+    height: 10px;
+    padding-bottom: 1px;
+    margin-bottom: 2px;
+}
+
+.seconday-function-label1 {
+    float: left;
+    color: #FFFFFF;
+    margin-left: 30px;
+    margin-right: 22px;
+    font-size: 11px;
 }
