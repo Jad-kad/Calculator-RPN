@@ -23,7 +23,7 @@ export default class ProgramPlatform extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    programOperation()  
+    programOperation()
   }
 
   handleClear() {
@@ -40,24 +40,25 @@ export default class ProgramPlatform extends React.Component {
 
   render() {
     return (
-      <div className='programWindow1'>
+      <div>
+      <div className='programWindow1'>                
         <form onSubmit={this.handleSubmit}>
-          <textarea className='textArea' rows='30' cols="36" id='textarea' value={store.state.textAreaValue} onChange={this.handleChange}></textarea>
-          <span>
+          <div className='text-area-div'>
+            <textarea className='textArea' rows='30' cols="36" id='textarea' value={store.state.textAreaValue} onChange={this.handleChange}></textarea>
+          </div>
+          <div className='bottom-bar-div'>
+            <label className='rec-label'> Rec </label>
+            <span>
+            <Checkbox
+              className='rec-check'
+              checked={store.state.recording} onCheck={this.handleCheckboxRec}
+            />
+            </span>
             <input type="submit" value="Run" className='run-button' />
-          </span>
+            <button className='clear-button' onClick={this.handleClear}> Clear </button>
+          </div>
         </form>
-        <span>
-          <button className='clear-button' onClick={this.handleClear}> Clear </button>
-        </span>
-        <div className='rec-div'>
-          <label className='rec-label'> Record </label>
-          <Checkbox
-          className='rec-check'
-          checked={store.state.recording} onCheck={this.handleCheckboxRec}
-        />
-          {/*<input type='checkbox' className='rec-check' checked={store.state.recording} onChange={this.handleCheckboxRec} />*/}
-        </div>
+      </div>
       </div>
     )
   }

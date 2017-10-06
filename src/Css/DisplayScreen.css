@@ -1,35 +1,19 @@
 .calculator-display {
-  letter-spacing: 2px;  font-family: Orbitron;
-  background: linear-gradient(#DDEDE7, #DDEDE7);
+  letter-spacing: 2px;  
+  font-family: Orbitron;
+  border:7px solid #171F23 ;
+  background:#D9D9D9;
   color:#10171C;
-  box-shadow: 1px 2px 7px #10171C;
-  width:362px;
+  border-bottom:none;
+  width:354px;
   height: 106px;
   margin: 0;
   padding:17px ;
   padding-left: 5px;
   font-size: 18px;
+  font-weight: bold;
   text-align: left;
-  border-radius: 5px;
   text-overflow: ellipsis;
-}
-
-.calculator-display1{
-  letter-spacing: 2px;  font-family: Orbitron;
-  background: linear-gradient(#374750, #171F23);
-  color:#394B5A;
-  text-shadow: 0px 0px 1px ;  
-  box-shadow: 1px 4px 7px #10171C;
-  width:385px;
-  height: 141px;
-  margin: 0;
-  padding:2px ;
-  font-size: 18px;
-  text-align: left;
-  border-radius: 7px 7px 0px 0px;
-  border: 1px solid #2D3F4D;
-  text-overflow: ellipsis;
-  border-bottom: none;
 }
 
 .stackDiv {
