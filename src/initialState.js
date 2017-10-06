@@ -6,5 +6,6 @@ export default {
     lastValue:null,
     textAreaValue:'',
     recording:false,
-    switchKey:true
+    switchKey:false,
+    help:false
   }

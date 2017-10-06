@@ -3,6 +3,8 @@ import '../Css/ProgramPlatform.css'
 import store from '../store'
 import programOperation from '../actions/ProgramOperation'
 import Checkbox from 'material-ui/Checkbox'
+import KC from '../calculator-codes/KeyCodes'
+import * as KH from '../help/help'
 
 export default class ProgramPlatform extends React.Component {
   componentWillMount() {
@@ -39,26 +41,64 @@ export default class ProgramPlatform extends React.Component {
   }
 
   render() {
+    let screen
+    let text
+    let topLabel 
+    const operation = store.state.operation
+
+    if (store.state.help === true) {
+      topLabel = (<label className='top-panel-label'>Help Panel</label>)
+      if (KH.keyCodeHelp.indexOf(operation) > -1) {
+        console.log('this is the operation', operation)
+        text = KH.helpText[operation]
+        screen = (<textarea className='textArea-help'
+          rows='30'
+          cols="36"
+          type='text'
+          value={text}
+          readOnly ></textarea>)
+      } else {
+        text = KH.helpMain
+        screen = (<textarea className='textArea-help'
+          rows='30'
+          cols="36"
+          type='text'
+          value={text}
+          readOnly ></textarea>)
+      }
+    } else {
+      topLabel = (<label className='top-panel-label'></label>)
+      screen = (<textarea
+        className='textArea'
+        rows='30'
+        cols="36"
+        id='textarea'
+        value={store.state.textAreaValue}
+        onChange={this.handleChange}></textarea>)
+    }
     return (
       <div>
-      <div className='programWindow1'>                
-        <form onSubmit={this.handleSubmit}>
-          <div className='text-area-div'>
-            <textarea className='textArea' rows='30' cols="36" id='textarea' value={store.state.textAreaValue} onChange={this.handleChange}></textarea>
+        <div className='programWindow1'>        
+          <div className='top-bar-div'>
+             {topLabel}
           </div>
-          <div className='bottom-bar-div'>
-            <label className='rec-label'> Rec </label>
-            <span>
-            <Checkbox
-              className='rec-check'
-              checked={store.state.recording} onCheck={this.handleCheckboxRec}
-            />
-            </span>
-            <input type="submit" value="Run" className='run-button' />
-            <button className='clear-button' onClick={this.handleClear}> Clear </button>
-          </div>
-        </form>
-      </div>
+          <form onSubmit={this.handleSubmit}>
+            <div className='text-area-div'>
+              {screen}
+            </div>
+            <div className='bottom-bar-div'>
+              <label className='rec-label'> Rec </label>
+              <span>
+                <Checkbox
+                  className='rec-check'
+                  checked={store.state.recording} onCheck={this.handleCheckboxRec}
+                />
+              </span>
+              <input type="submit" value="Run" className='run-button' />
+              <button className='clear-button' onClick={this.handleClear}> Clear </button>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }

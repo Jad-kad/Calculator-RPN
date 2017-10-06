@@ -47,6 +47,9 @@
     background: -webkit-gradient(linear, 0 0, 0 bottom, from(#374750), to(#3E4D55));
 }
 
+
+/*first row*/
+
 .CalculatorKey.KeyPad-y\^x,
 .CalculatorKey.KeyPad-log,
 .CalculatorKey.KeyPad-ln,
@@ -64,6 +67,14 @@
     outline: none;
     letter-spacing: 1px;
     background: #32424A;
+}
+
+.CalculatorKey.KeyPad-y\^x:active,
+.CalculatorKey.KeyPad-log:active,
+.CalculatorKey.KeyPad-ln:active,
+.CalculatorKey.KeyPad-e\^x:active,
+.CalculatorKey.KeyPad-clr:active {
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#374750), to(#3E4D55));
 }
 
 .CalculatorKey.KeyPad-enter {
@@ -92,6 +103,11 @@
     font-size: 15px;
 }
 
+.CalculatorKey.KeyPad-help {
+    font-size: 15px;
+    color: #BFB386;
+}
+
 .CalculatorKey.KeyPad-\*,
 .CalculatorKey.KeyPad-\+,
 .CalculatorKey.KeyPad--,
@@ -107,6 +123,13 @@
     outline: none;
     letter-spacing: 1px;
     background: #32424A;
+}
+
+.CalculatorKey.KeyPad-\*:active,
+.CalculatorKey.KeyPad-\+:active,
+.CalculatorKey.KeyPad--:active,
+.CalculatorKey.KeyPad-\/:active {
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#374750), to(#3E4D55));
 }
 
 .CalculatorKey.KeyPad-1,

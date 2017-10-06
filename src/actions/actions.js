@@ -43,6 +43,7 @@ const inputDigit = digit => state => {
   }
 }
 
+
 const clear = state => {
   const stack = [0, 0, 0, 0]
   const operation = ''
@@ -309,8 +310,14 @@ const alog = state => {
 const pct = state => {
   const [x, y, z, t] = store.state.stack
   const stack = [Number(y)*Number(x)/100, z, t, 0]
-  const operation = KC.ALOG
+  const operation = KC.PCT
   store.setState({ ...state, stack, operation })
+}
+
+const help = state => {
+  let help = store.state.help
+  help === false ? help = true : help = false
+  store.setState({ ...state, help })
 }
 const instructions = {
   [KC.D0]: inputDigit(0),
@@ -350,7 +357,8 @@ const instructions = {
   [KC.PI]: pi,
   [KC.SWITCH_FN]: switchFN,
   [KC.ALOG]: alog,
-  [KC.PCT]: pct
+  [KC.PCT]: pct,
+  [KC.HELP]: help
 }
 
 export function otherOperations(keyCode, state) {
