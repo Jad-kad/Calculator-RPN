@@ -1,5 +1,5 @@
 .calculatorBody {
-    height: 800px;
+    height: 726px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -7,6 +7,11 @@
     border-radius: 0px 0px 20px 20px;
     border-radius: 5px 5px 0px 0px;
     background: #A1A1A1;
+    position: relative;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    /*display:inline-block;*/
+    /*height:100%;*/
     /*background-image: url('https://scontent-ams3-1.xx.fbcdn.net/v/t1.0-9/1450881_421925031270444_1034757486_n.jpg?oh=12a766d80194895258a560d301c7a23e&oe=5A4AD161')*/
     /*background: -webkit-gradient(linear, 0 0, 0 bottom, from(#727273
 ), to(#B5BBBD));*/

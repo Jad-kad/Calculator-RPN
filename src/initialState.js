@@ -7,5 +7,7 @@ export default {
     textAreaValue:'',
     recording:false,
     switchKey:false,
-    help:false
+    help:false,
+    gitPrograms:[],
+    programsMenu:false
   }

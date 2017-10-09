@@ -3,8 +3,8 @@ import '../Css/ProgramPlatform.css'
 import store from '../store'
 import programOperation from '../actions/ProgramOperation'
 import Checkbox from 'material-ui/Checkbox'
-import KC from '../calculator-codes/KeyCodes'
 import * as KH from '../help/help'
+import GitButton from './GitButton'
 
 export default class ProgramPlatform extends React.Component {
   componentWillMount() {
@@ -47,7 +47,7 @@ export default class ProgramPlatform extends React.Component {
     const operation = store.state.operation
 
     if (store.state.help === true) {
-      topLabel = (<label className='top-panel-label'>Help Panel</label>)
+      topLabel = (<label className='top-panel-label-help'>Help Panel</label>)
       if (KH.keyCodeHelp.indexOf(operation) > -1) {
         console.log('this is the operation', operation)
         text = KH.helpText[operation]
@@ -67,7 +67,7 @@ export default class ProgramPlatform extends React.Component {
           readOnly ></textarea>)
       }
     } else {
-      topLabel = (<label className='top-panel-label'></label>)
+      topLabel = (<label className='top-panel-label-program'>Program panel</label>)
       screen = (<textarea
         className='textArea'
         rows='30'
@@ -78,9 +78,11 @@ export default class ProgramPlatform extends React.Component {
     }
     return (
       <div>
+        
         <div className='programWindow1'>        
-          <div className='top-bar-div'>
+          <div className='top-bar-div'>       
              {topLabel}
+             <GitButton/>
           </div>
           <form onSubmit={this.handleSubmit}>
             <div className='text-area-div'>
