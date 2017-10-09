@@ -1,0 +1,45 @@
+.git-drop-menu {
+    position: absolute;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-right: -50px;
+}
+
+.git-menu-button {
+    display: block;
+    margin: 2px 0px 2px -74px;
+    outline: none;
+    font-size: 15px;
+    border: none;
+    width: 150px;
+    height: 40px;
+    border-radius: 2px;
+    color: #32424A;
+    color: #FFFFFF;
+    /*background: linear-gradient(#303C41, #171F23);*/
+    background: #32424A;
+}
+
+.git-menu-button:active {
+    background: #536A75;
+}
+
+.git-button {
+    outline: none;
+    font-size: 16px;
+    border: none;
+    margin: 5px -5px -5px 10px;
+    width: 60px;
+    height: 40px;
+    border-radius: 4px;
+    color: #32424A;
+    color: #FFFFFF;
+    background: #1C2429;
+    position: absolute;
+}
+
+.git-button:active {
+    background: #536A75;
+}
