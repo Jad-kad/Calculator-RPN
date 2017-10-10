@@ -69,7 +69,7 @@ export default class GitButton extends React.Component {
           )
         })
         return programslinks
-      } else { console.error() }
+      } else { console.error('click git') }
     }
 
     return (

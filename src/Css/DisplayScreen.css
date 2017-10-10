@@ -2,15 +2,16 @@
   letter-spacing: 2px;  
   font-family: Orbitron;
   border:7px solid #171F23 ;
-  background:#D9D9D9;
+  background:#D8D7D7;
   color:#10171C;
   border-bottom:none;
-  width:354px;
+  width:366px;
   height: 106px;
   margin: 0;
   padding:17px ;
   padding-left: 5px;
-  font-size: 18px;
+  padding-right: 5px;
+  font-size: 17px;
   font-weight: bold;
   text-align: left;
   text-overflow: ellipsis;
@@ -18,7 +19,7 @@
 
 .stackDiv {
   margin-left:10px;
-  margin-bottom: 4px;
+  margin-bottom: 7px;
 }
 
 

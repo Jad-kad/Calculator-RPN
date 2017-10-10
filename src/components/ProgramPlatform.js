@@ -5,6 +5,7 @@ import programOperation from '../actions/ProgramOperation'
 import Checkbox from 'material-ui/Checkbox'
 import * as KH from '../help/help'
 import GitButton from './GitButton'
+import GitMenu from './GitMenu'
 
 export default class ProgramPlatform extends React.Component {
   componentWillMount() {
@@ -43,11 +44,11 @@ export default class ProgramPlatform extends React.Component {
   render() {
     let screen
     let text
-    let topLabel 
+    let topLabel
     const operation = store.state.operation
 
     if (store.state.help === true) {
-      topLabel = (<label className='top-panel-label-help'>Help Panel</label>)
+      topLabel = (<label className='top-panel-label-help'>Help panel</label>)
       if (KH.keyCodeHelp.indexOf(operation) > -1) {
         console.log('this is the operation', operation)
         text = KH.helpText[operation]
@@ -66,6 +67,15 @@ export default class ProgramPlatform extends React.Component {
           value={text}
           readOnly ></textarea>)
       }
+    } else if (store.state.programsMenu === true) {
+      topLabel = (<label className='top-panel-label-program'>Program panel</label>)
+      screen = (<textarea
+        className='textArea-menu'
+        rows='30'
+        cols="36"
+        id='textarea'
+        value={store.state.textAreaValue}
+        onChange={this.handleChange}></textarea>)
     } else {
       topLabel = (<label className='top-panel-label-program'>Program panel</label>)
       screen = (<textarea
@@ -78,11 +88,10 @@ export default class ProgramPlatform extends React.Component {
     }
     return (
       <div>
-        
-        <div className='programWindow1'>        
-          <div className='top-bar-div'>       
-             {topLabel}
-             <GitButton/>
+        <div className='programWindow1'>
+          <div className='top-bar-div'>
+            <GitButton />
+            {topLabel}
           </div>
           <form onSubmit={this.handleSubmit}>
             <div className='text-area-div'>

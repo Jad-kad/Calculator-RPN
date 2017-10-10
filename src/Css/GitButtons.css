@@ -9,17 +9,19 @@
 
 .git-menu-button {
     display: block;
-    margin: 2px 0px 2px -74px;
+    margin: 0px 0px 0px 0px;
     outline: none;
-    font-size: 15px;
+    font-size: 13px;
     border: none;
-    width: 150px;
+    width: 114px;
     height: 40px;
     border-radius: 2px;
     color: #32424A;
+    text-align: left;
     color: #FFFFFF;
     /*background: linear-gradient(#303C41, #171F23);*/
     background: #32424A;
+    border-bottom: 1px solid #1C2429;
 }
 
 .git-menu-button:active {
@@ -30,7 +32,7 @@
     outline: none;
     font-size: 16px;
     border: none;
-    margin: 5px -5px -5px 10px;
+    margin: 5px -5px -5px 5px;
     width: 60px;
     height: 40px;
     border-radius: 4px;
