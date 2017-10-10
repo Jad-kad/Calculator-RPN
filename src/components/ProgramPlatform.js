@@ -50,7 +50,7 @@ export default class ProgramPlatform extends React.Component {
     if (store.state.help === true) {
       topLabel = (<label className='top-panel-label-help'>Help panel</label>)
       if (KH.keyCodeHelp.indexOf(operation) > -1) {
-        console.log('this is the operation', operation)
+        // console.log('this is the operation', operation)
         text = KH.helpText[operation]
         screen = (<textarea className='textArea-help'
           rows='30'
