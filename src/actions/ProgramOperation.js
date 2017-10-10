@@ -4,10 +4,23 @@ import validKeyCodes from '../calculator-codes/ProgramTextCode'
 
 export default function programOperation() {
     const {textAreaValue} = store.state
-    const keyCodes = textAreaValue
+    const keyCodes1 = filterTextArea(textAreaValue)
+
+    const keyCodes = keyCodes1
         .replace(/^\s*\n/gm, "")
         .split(/\n/)
         .filter(keyCode => keyCode.length > 0)
+
+    function filterTextArea(textAreaValue) {
+
+        if (textAreaValue.indexOf("```") !== -1) {
+            textAreaValue = textAreaValue.substring(textAreaValue.indexOf("```") + 4)
+            textAreaValue = textAreaValue.substring(-1, textAreaValue.indexOf("```") - 1)
+        }
+        textAreaValue = textAreaValue.replace(/ |>>/g, "")
+        return textAreaValue
+    }
+    console.log(filterTextArea(textAreaValue))
 
     for (let i = 0; i < keyCodes.length; i++) {
         const keyCode = keyCodes[i]
