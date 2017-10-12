@@ -5,7 +5,6 @@ import programOperation from '../actions/ProgramOperation'
 import Checkbox from 'material-ui/Checkbox'
 import * as KH from '../help/help'
 import GitButton from './GitButton'
-import GitMenu from './GitMenu'
 
 export default class ProgramPlatform extends React.Component {
   componentWillMount() {

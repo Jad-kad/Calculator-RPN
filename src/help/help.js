@@ -30,7 +30,14 @@ If you want to double the old number, just press + after the enter. Or if you wa
  ,'chs':`
 Changing sign
 
-Its primary uses are for entering negativenumbers and changing the sign of a computed result.`
+Its primary uses are for entering negative numbers and changing the sign of a computed result.`
+,'eex':`
+ENTER EXPONENT key
+
+You can enter numbers in scientific notation by using the EEX key.
+You can save time when entering exact powers of ten
+simply by pressing EEX and then the desired power
+ten. `
 
 
 }

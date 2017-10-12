@@ -289,7 +289,7 @@ const tan = state => {
 
 const pi = state => {
   const [x, y, z, t] = store.state.stack
-  const stack = [Math.PI, y, z, t]
+  const stack = [Math.PI, x, y, z]
   const operation = KC.PI
   store.setState({ ...state, stack, operation })
 }
@@ -316,8 +316,15 @@ const pct = state => {
 
 const help = state => {
   let help = store.state.help
-  help === false ? help = true : help = false
-  store.setState({ ...state, help })
+  let programsMenu = store.state.programsMenu
+
+  if(help === false){
+    help = true
+    programsMenu = false
+  } else {
+    help = false
+  }
+  store.setState({ ...state, help, programsMenu })
 }
 const instructions = {
   [KC.D0]: inputDigit(0),
