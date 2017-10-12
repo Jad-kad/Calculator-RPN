@@ -21,24 +21,25 @@ export default class GitButton extends React.Component {
   }
 
   handleGitPrograms() {
-    if (store.state.programsMenu === true) {
+    if (store.state.programsMenu === false) {
       if (store.state.gitPrograms.length === 0) {
+        const gitPrograms1 = []
         const endpoint = 'https://api.github.com/repos/remarcmij/calculator-programs/contents/programs'
-        const {gitPrograms} = store.state
-        const gitPrograms1 = gitPrograms
+        console.log('git programs1', gitPrograms1)
 
         fetch(endpoint)
           .then(blob => blob.json())
-          .then(data => gitPrograms.push(...data))
+          .then(data => gitPrograms1.push(...data))
+        console.log('git data', gitPrograms1)
         store.setState({
-          gitPrograms: gitPrograms1, programsMenu: false
+          gitPrograms: gitPrograms1, programsMenu: true,help:false
         })
       } else {
-        store.setState({ programsMenu: false })
+        store.setState({ programsMenu: true,help:false })
       }
     }
     else {
-      store.setState({ programsMenu: true })
+      store.setState({ programsMenu: false })
     }
   }
 
@@ -60,16 +61,16 @@ export default class GitButton extends React.Component {
                 }
                 XMLHTTP.open("GET", item.download_url, false)
                 XMLHTTP.send()
-                 store.setState({
-                programsMenu:false
-              })
+                store.setState({
+                  programsMenu: false
+                })
               }
-             }
+              }
             >{item.name}</button>
           )
         })
         return programslinks
-      } else { console.error('click git') }
+      } else { console.log('click git') }
     }
 
     return (

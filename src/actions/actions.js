@@ -4,7 +4,7 @@ import { KC } from '../calculator-codes/KeyCodes'
 const operationCodes = [KC.SIN, KC.COS, KC.TAN, KC.ADD, KC.MUL,
 KC.DIV, KC.SQRT, KC.RECIPROCAL,
 KC.POW, KC.LOG, KC.EXP, KC.LN, KC.PI,
-KC.STO, KC.RCL, KC.ROLL_DOWN, KC.SWAP, KC.SUB, KC.ALOG,KC.PCT]
+KC.STO, KC.RCL, KC.ROLL_DOWN, KC.SWAP, KC.SUB, KC.ALOG, KC.PCT]
 
 const inputDigit = digit => state => {
   const [x, ...rest] = state.stack
@@ -289,7 +289,7 @@ const tan = state => {
 
 const pi = state => {
   const [x, y, z, t] = store.state.stack
-  const stack = [Math.PI, y, z, t]
+  const stack = [Math.PI, x, y, z]
   const operation = KC.PI
   store.setState({ ...state, stack, operation })
 }
@@ -309,15 +309,22 @@ const alog = state => {
 
 const pct = state => {
   const [x, y, z, t] = store.state.stack
-  const stack = [Number(y)*Number(x)/100, z, t, 0]
+  const stack = [Number(y) * Number(x) / 100, z, t, 0]
   const operation = KC.PCT
   store.setState({ ...state, stack, operation })
 }
 
 const help = state => {
   let help = store.state.help
-  help === false ? help = true : help = false
-  store.setState({ ...state, help })
+  let programsMenu = store.state.programsMenu
+
+  if(help === false){
+    help = true
+    programsMenu = false
+  } else {
+    help = false
+  }
+  store.setState({ ...state, help, programsMenu })
 }
 const instructions = {
   [KC.D0]: inputDigit(0),
@@ -362,36 +369,43 @@ const instructions = {
 }
 
 export function otherOperations(keyCode, state) {
-  const fn = instructions[keyCode]
-  if (fn) {
-    console.log('fn called', keyCode)
-    fn(state)
-  } if (store.state.recording) {
-    const [x, ...rest] = store.state.stack
-    let textAreaValue = store.state.textAreaValue
-    if (keyCode === KC.CLR || keyCode === KC.SWITCH_FN) {
-      return
+  if (store.state.help === true) {
+      store.setState({ operation: keyCode })
+          if (store.state.operation === "help") {
+      store.setState({ help: false , operation:'' })
     }
-    if (keyCode === KC.ENTER) {
-      if (textAreaValue === '') {
-        textAreaValue = textAreaValue + x + '\n'
-        store.setState({ ...state, textAreaValue })
-      } else {
-        textAreaValue = textAreaValue + '\n'
+  } else {
+    const fn = instructions[keyCode]
+    if (fn) {
+      // console.log('fn called', keyCode)
+      fn(state)
+    } if (store.state.recording) {
+      const [x, ...rest] = store.state.stack
+      let textAreaValue = store.state.textAreaValue
+      if (keyCode === KC.CLR || keyCode === KC.SWITCH_FN) {
+        return
+      }
+      if (keyCode === KC.ENTER) {
+        if (textAreaValue === '') {
+          textAreaValue = textAreaValue + x + '\n'
+          store.setState({ ...state, textAreaValue })
+        } else {
+          textAreaValue = textAreaValue + '\n'
+          store.setState({ ...state, textAreaValue })
+        }
+
+      } if ((Number(keyCode) || keyCode === '0') && textAreaValue !== '') {
+        textAreaValue = textAreaValue + keyCode
         store.setState({ ...state, textAreaValue })
       }
-
-    } if ((Number(keyCode) || keyCode === '0') && textAreaValue !== '') {
-      textAreaValue = textAreaValue + keyCode
-      store.setState({ ...state, textAreaValue })
-    }
-    if (keyCode !== KC.ENTER && (!Number(keyCode) && keyCode !== '0')) {
-      if (Number(textAreaValue.substring(textAreaValue.length - 1)) || (textAreaValue.substring(textAreaValue.length - 1) === '0')) {
-        textAreaValue = textAreaValue + '\n' + keyCode + '\n'
-        store.setState({ ...state, textAreaValue })
-      } else {
-        textAreaValue = textAreaValue + keyCode + '\n'
-        store.setState({ ...state, textAreaValue })
+      if (keyCode !== KC.ENTER && (!Number(keyCode) && keyCode !== '0')) {
+        if (Number(textAreaValue.substring(textAreaValue.length - 1)) || (textAreaValue.substring(textAreaValue.length - 1) === '0')) {
+          textAreaValue = textAreaValue + '\n' + keyCode + '\n'
+          store.setState({ ...state, textAreaValue })
+        } else {
+          textAreaValue = textAreaValue + keyCode + '\n'
+          store.setState({ ...state, textAreaValue })
+        }
       }
     }
   }

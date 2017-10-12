@@ -16,14 +16,30 @@ Antilog:
     , '%': `
 calculates (y * x) / 100 
 and show the answer in the x stack. `,
-'chs':`
-changing sign for stack x
-`,'switchFn':`
+'switchFn':`
 switching functions for dual 
 functionality buttons.`,'enter':`
-Every time you hit the enter key you push the 
-number into the stack above.
- `
+The enter key repeats the number displayed to a
+second internal register (place that holds numbers).
+
+When you now enter a new number, it automatically clears
+the display of the old one.
+
+If you want to double the old number, just press + after the enter. Or if you want to square It, Just press ×.`
+ ,'<>' :`swap the x and y stacks`
+ ,'chs':`
+Changing sign
+
+Its primary uses are for entering negative numbers and changing the sign of a computed result.`
+,'eex':`
+ENTER EXPONENT key
+
+You can enter numbers in scientific notation by using the EEX key.
+You can save time when entering exact powers of ten
+simply by pressing EEX and then the desired power
+ten. `
+
+
 }
 
 export const helpMain = `

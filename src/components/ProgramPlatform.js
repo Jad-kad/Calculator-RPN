@@ -5,7 +5,6 @@ import programOperation from '../actions/ProgramOperation'
 import Checkbox from 'material-ui/Checkbox'
 import * as KH from '../help/help'
 import GitButton from './GitButton'
-import GitMenu from './GitMenu'
 
 export default class ProgramPlatform extends React.Component {
   componentWillMount() {
@@ -50,7 +49,7 @@ export default class ProgramPlatform extends React.Component {
     if (store.state.help === true) {
       topLabel = (<label className='top-panel-label-help'>Help panel</label>)
       if (KH.keyCodeHelp.indexOf(operation) > -1) {
-        console.log('this is the operation', operation)
+        // console.log('this is the operation', operation)
         text = KH.helpText[operation]
         screen = (<textarea className='textArea-help'
           rows='30'
