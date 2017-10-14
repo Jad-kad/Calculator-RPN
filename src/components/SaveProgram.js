@@ -11,7 +11,7 @@ export default class saveProgram extends React.Component {
             localStorage.setItem(programName, programArea)
             store.setState({saveProgram:false})
         } else {
-            console.log('please enter a value')
+            alert('please name your program')
         }
     }
 
