@@ -10,12 +10,12 @@
     box-shadow: 1px 4px 7px #10171C;
     width: 300px;
     height: 460px;
-    padding: 25px 15px 15px 15px;
+    padding: 25px 15px 15px 16px;
     border-radius: 0px 0px 3px 3px;
 }
 
 .KeyBoardPad {
-    padding: 8px 15px 20px 15px;
+    padding: 8px 15px 20px 20px;
     border: 0px solid black;
     width: 350px;
     height: 460px;
@@ -174,7 +174,7 @@
 
 .KeyPad-switchFn {
     font-size: 15px;
-    color: #FF9100;
+    color: #DC7D00;
     text-align: center;
     padding-left: 4px;
 }
@@ -192,16 +192,17 @@
     outline: none;
     font-weight: bold;
     letter-spacing: 1px;
-    background: #FF9100;
+    background: #DC7D00;
 }
 
-.CalculatorKey.KeyPad-alog:active {
+.CalculatorKey.KeyPad-alog:active,
+.CalculatorKey.KeyPad-\%:active {
     background: #635931;
 }
 
 .seconday-function {
     float: left;
-    color: #FF9100;
+    color: #DC7D00;
     margin-left: 30px;
     margin-right: 20px;
     font-size: 11px;

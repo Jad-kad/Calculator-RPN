@@ -55,12 +55,12 @@
     outline: none;
     font-size: 20px;
     border: none;
-    margin: 5px -5px -5px 49px;
+    margin: 5px -5px -5px 48px;
     width: 40px;
     height: 40px;
     border-radius: 4px;
     color: #32424A;
-    color: #FFFFFF;
+    color: #E1E1E1;
     background: #1C2429;
     position: absolute;
 }
@@ -76,29 +76,26 @@
     outline: none;
     font-size: 20px;
     border: none;
-    margin: 5px -5px -5px 92px;
+    margin: 5px -5px -5px 91px;
     width: 41px;
     height: 40px;
     border-radius: 4px;
     color: #32424A;
-    color: #FFFFFF;
+    color: #E1E1E1;
     background: #1C2429;
     position: absolute;
 }
 
 #inputValue{
     display: block;
-    /* margin: 100px 0px 0px 0px; */
     outline: none;
     font-size: 13px;
     border: none;
     width: 109px;
-    height: 27px;
-    border-radius: 2px;
-    /* color: #32424A; */
+    height: 25px;
+    border-radius: 4px;
     text-align: left;
     color: #32424A;
-    /*background: linear-gradient(#303C41, #171F23);*/
     background: #D8D7D7;
     border-bottom: 1px solid #1C2429;
     padding-left:5px;
@@ -106,15 +103,16 @@
 
 .save-program-submit-button{
     outline: none;
-    font-size: 15px;
+    font-size: 13px;
     border: none;
     /* margin: 5px -5px -5px 104px; */
-    margin-top: 30px;
+    margin-top: 29px;
     width: 114px;
-    height: 27px;
+    height: 30px;
     border-radius: 4px;
     color: #32424A;
     color: #FFFFFF;
-    background: #1C2429;
+    background: #32424A;
     position: absolute;
+    border-bottom: 1px solid #1C2429;
 }
