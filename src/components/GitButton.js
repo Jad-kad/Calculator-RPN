@@ -25,19 +25,14 @@ export default class GitButton extends React.Component {
       if (store.state.gitPrograms.length === 0) {
         const gitPrograms1 = []
         const endpoint = 'https://api.github.com/repos/remarcmij/calculator-programs/contents/programs'
-        // console.log('git programs1', gitPrograms1)
-      
-        // fetch(endpoint)
-        //   .then(blob => blob.json())
-        //   .then(data => gitPrograms1.push(...data))
-      const fetchAsyncA = async () => 
-         await (await fetch(endpoint)).json().then(data => gitPrograms1.push(...data)).then(store.setState({
-          gitPrograms: gitPrograms1, programsMenu: true,help:false,saveProgram:false,programLoad:false
-        }))
-        console.log('gitPrograms1', gitPrograms1)       
+        const fetchAsyncA = async () =>
+          await (await fetch(endpoint)).json().then(data => gitPrograms1.push(...data)).then(store.setState({
+            gitPrograms: gitPrograms1, programsMenu: true, help: false, saveProgram: false, programLoad: false
+          }))
+        console.log('gitPrograms1', gitPrograms1)
         fetchAsyncA()
       } else {
-        store.setState({ programsMenu: true,help:false,saveProgram:false,programLoad:false })
+        store.setState({ programsMenu: true, help: false, saveProgram: false, programLoad: false })
       }
     }
     else {

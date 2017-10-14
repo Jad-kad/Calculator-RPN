@@ -317,14 +317,18 @@ const pct = state => {
 const help = state => {
   let help = store.state.help
   let programsMenu = store.state.programsMenu
-
+  let saveProgram = store.state.saveProgram
+  let programLoad = store.state.programLoad
+  
   if(help === false){
     help = true
     programsMenu = false
+    programLoad = false
+    saveProgram = false
   } else {
     help = false
   }
-  store.setState({ ...state, help, programsMenu })
+  store.setState({ ...state, help, programsMenu,programLoad,saveProgram })
 }
 const instructions = {
   [KC.D0]: inputDigit(0),
@@ -372,7 +376,7 @@ export function otherOperations(keyCode, state) {
   if (store.state.help === true) {
       store.setState({ operation: keyCode })
           if (store.state.operation === "help") {
-      store.setState({ help: false , operation:'' })
+      store.setState({ help: false , operation:'',  })
     }
   } else {
     const fn = instructions[keyCode]
@@ -380,6 +384,9 @@ export function otherOperations(keyCode, state) {
       // console.log('fn called', keyCode)
       fn(state)
     } if (store.state.recording) {
+      if(keyCode=== 'help'){
+        return
+      }
       const [x, ...rest] = store.state.stack
       let textAreaValue = store.state.textAreaValue
       if (keyCode === KC.CLR || keyCode === KC.SWITCH_FN) {

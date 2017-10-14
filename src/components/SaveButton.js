@@ -30,7 +30,7 @@ export default class SaveButton extends React.Component {
                 return (
                         <button 
                         className='loaded-programs-button'
-                        onClick={() => store.setState({ textAreaValue: localStorage[index] })}>
+                        onClick={() => store.setState({ textAreaValue: localStorage[index], programLoad:false, help:false })}>
                             {index}
                         </button>
                     )
@@ -43,7 +43,7 @@ export default class SaveButton extends React.Component {
             onClick={this.handleSave}></button>
             {dropDownLoaded}
             <button 
-            className='load-program-button fa fa-files-o'
+            className='load-program-button fa fa-folder-open'
             onClick={this.handleLoad}> </button>
             <div className='load-drop-menu'>
             {programLoad}

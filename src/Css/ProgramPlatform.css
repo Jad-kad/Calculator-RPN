@@ -25,6 +25,7 @@
     font-family: Verdana;
     color: #D9D9D9;
     font-size: 16px;
+    resize: none;
 }
 
 .textArea-menu {
@@ -47,6 +48,7 @@
     font-family: Verdana;
     color: #D9D9D9;
     font-size: 18px;
+    resize: none;
 }
 
 .run-button,
