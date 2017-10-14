@@ -14,7 +14,7 @@
     font-size: 13px;
     border: none;
     width: 114px;
-    height: 40px;
+    height: 30px;
     border-radius: 2px;
     color: #32424A;
     text-align: left;
@@ -30,10 +30,10 @@
 
 .git-button {
     outline: none;
-    font-size: 16px;
+    font-size: 32px;
     border: none;
     margin: 5px -5px -5px 5px;
-    width: 60px;
+    width: 40px;
     height: 40px;
     border-radius: 4px;
     color: #32424A;
@@ -45,3 +45,4 @@
 .git-button:active {
     background: #536A75;
 }
+

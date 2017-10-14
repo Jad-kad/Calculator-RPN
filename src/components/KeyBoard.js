@@ -18,16 +18,19 @@ export default class KeyBoard extends React.Component {
 			switchKey2
 		let switchLabel1,
 			switchLabel2
+		let shiftKey	
 		if (store.state.switchKey === true) {
 			switchKey1 = (<CalculatorKey label='ALOG' keyCode={KC.ALOG} />)
 			switchLabel1 = (<label className='seconday-function-label1'>LOG</label>)
 			switchKey2 = (<CalculatorKey label='%' keyCode={KC.PCT} />)
-			switchLabel2 = (<label className='seconday-function-label1'>xʸ</label>)
+			switchLabel2 = (<label className='seconday-function-label1'>yˣ</label>)
+			shiftKey = (<CalculatorKey label='Shift' keyCode={KC.SWITCH_FN}  />)
 		} else {
 			switchKey1 = (<CalculatorKey label='LOG' keyCode={KC.LOG} />)
 			switchLabel1 = (<label className='seconday-function'>ALOG</label>)
-			switchKey2 = (<CalculatorKey label='xʸ' keyCode={KC.POW} />)
+			switchKey2 = (<CalculatorKey label='yˣ' keyCode={KC.POW} />)
 			switchLabel2 = (<label className='seconday-function'>%</label>)
+			shiftKey = (<CalculatorKey label='Shift' keyCode={KC.SWITCH_FN} />)
 		}
 		return (
 			<div className="mathTable">
@@ -65,7 +68,7 @@ export default class KeyBoard extends React.Component {
 					</div>
 					<div>
 						<CalculatorKey label='-' keyCode={KC.SUB} />
-						<CalculatorKey label='S' keyCode={KC.SWITCH_FN} />
+						{shiftKey}
 						<CalculatorKey label='7' keyCode={KC.D7} />
 						<CalculatorKey label='8' keyCode={KC.D8} />
 						<CalculatorKey label='9' keyCode={KC.D9} />

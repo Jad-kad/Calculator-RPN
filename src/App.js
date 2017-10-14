@@ -5,7 +5,6 @@ import DisplayScreen from './components/DisplayScreen'
 import KeyBoard from './components/KeyBoard'
 import ProgramPlatform from './components/ProgramPlatform'
 
-
 class App extends React.Component {
   componentWillMount() {
     store.subscription = store.subscribe(state => {

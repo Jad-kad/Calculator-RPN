@@ -5,6 +5,8 @@ import programOperation from '../actions/ProgramOperation'
 import Checkbox from 'material-ui/Checkbox'
 import * as KH from '../help/help'
 import GitButton from './GitButton'
+import SaveButton from './SaveButton'
+
 
 export default class ProgramPlatform extends React.Component {
   componentWillMount() {
@@ -66,7 +68,7 @@ export default class ProgramPlatform extends React.Component {
           value={text}
           readOnly ></textarea>)
       }
-    } else if (store.state.programsMenu === true) {
+    } else if (store.state.programsMenu || store.state.saveProgram || store.state.programLoad) {
       topLabel = (<label className='top-panel-label-program'>Program panel</label>)
       screen = (<textarea
         className='textArea-menu'
@@ -90,6 +92,7 @@ export default class ProgramPlatform extends React.Component {
         <div className='programWindow1'>
           <div className='top-bar-div'>
             <GitButton />
+            <SaveButton />
             {topLabel}
           </div>
           <form onSubmit={this.handleSubmit}>
@@ -107,9 +110,10 @@ export default class ProgramPlatform extends React.Component {
               <input type="submit" value="Run" className='run-button' />
               <button className='clear-button' onClick={this.handleClear}> Clear </button>
             </div>
-          </form>
-        </div>
+          </form>       
+        </div>            
       </div>
+
     )
   }
 }

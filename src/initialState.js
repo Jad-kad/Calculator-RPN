@@ -9,5 +9,7 @@ export default {
     switchKey:false,
     help:false,
     gitPrograms:[],
-    programsMenu:false
+    programsMenu:false,
+    loadProgram:false,
+    saveProgram:false
   }

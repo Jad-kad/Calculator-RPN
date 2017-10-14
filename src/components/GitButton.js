@@ -25,17 +25,19 @@ export default class GitButton extends React.Component {
       if (store.state.gitPrograms.length === 0) {
         const gitPrograms1 = []
         const endpoint = 'https://api.github.com/repos/remarcmij/calculator-programs/contents/programs'
-        console.log('git programs1', gitPrograms1)
-
-        fetch(endpoint)
-          .then(blob => blob.json())
-          .then(data => gitPrograms1.push(...data))
-        console.log('git data', gitPrograms1)
-        store.setState({
-          gitPrograms: gitPrograms1, programsMenu: true,help:false
-        })
+        // console.log('git programs1', gitPrograms1)
+      
+        // fetch(endpoint)
+        //   .then(blob => blob.json())
+        //   .then(data => gitPrograms1.push(...data))
+      const fetchAsyncA = async () => 
+         await (await fetch(endpoint)).json().then(data => gitPrograms1.push(...data)).then(store.setState({
+          gitPrograms: gitPrograms1, programsMenu: true,help:false,saveProgram:false,programLoad:false
+        }))
+        console.log('gitPrograms1', gitPrograms1)       
+        fetchAsyncA()
       } else {
-        store.setState({ programsMenu: true,help:false })
+        store.setState({ programsMenu: true,help:false,saveProgram:false,programLoad:false })
       }
     }
     else {
@@ -75,7 +77,7 @@ export default class GitButton extends React.Component {
 
     return (
       <div>
-        <button onClick={this.handleGitPrograms} className='git-button'> github </button>
+        <button onClick={this.handleGitPrograms} className='git-button'> <i className="fa fa-github" ></i> </button>
         <div className='git-drop-menu'>
           {programsMenuDiv()}
         </div>
