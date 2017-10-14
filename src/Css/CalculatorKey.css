@@ -175,6 +175,8 @@
 .KeyPad-switchFn {
     font-size: 15px;
     color: #FF9100;
+    text-align: center;
+    padding-left: 4px;
 }
 
 .CalculatorKey.KeyPad-alog,
@@ -217,4 +219,11 @@
     margin-left: 30px;
     margin-right: 22px;
     font-size: 11px;
+}
+
+.shift {
+    font-size: 15px;
+    color: #FFFFFF;
+    text-align: center;
+    padding-left: 4px;
 }

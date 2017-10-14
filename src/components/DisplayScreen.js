@@ -18,7 +18,6 @@ export default class DisplayScreen extends React.Component {
 
     return (
       <div className="calculator-display1">
-
         <div className="calculator-display">
           <div className="stackDiv">.t {store.state.stack[3]}</div>
           <div className="stackDiv">z {store.state.stack[2]}</div>
