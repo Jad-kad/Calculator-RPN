@@ -23,7 +23,7 @@ export default class SaveButton extends React.Component {
         let loadProgramName = []
         for (let i = 0; i < localStorage.length; i++) {
             loadProgramName = Object.keys(localStorage)
-        } console.log('loadProgramName', loadProgramName)
+        }
 
         if (store.state.programLoad) {
             programLoad = loadProgramName.map(function (index) {

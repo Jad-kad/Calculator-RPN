@@ -12,7 +12,7 @@ export default class CalculatorKey extends React.Component {
 	}
 
 	render() {
-		const {label, keyCode} = this.props
+		const { label, keyCode } = this.props
 
 		return (
 			<button className={`CalculatorKey KeyPad-${keyCode}`} onClick={() => action.otherOperations(keyCode, store.state)}>

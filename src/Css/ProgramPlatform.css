@@ -37,6 +37,7 @@
     font-family: Verdana;
     color: #767676;
     font-size: 16px;
+    resize: none;
 }
 
 .textArea-help {
@@ -57,9 +58,9 @@
     outline: none;
     font-size: 16px;
     margin: 5px;
-    margin-left: 100px;
+    margin-left: 114px;
     border: none;
-    width: 60px;
+    width: 50px;
     height: 40px;
     border-radius: 4px;
     color: #32424A;

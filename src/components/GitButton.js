@@ -29,7 +29,6 @@ export default class GitButton extends React.Component {
           await (await fetch(endpoint)).json().then(data => gitPrograms1.push(...data)).then(store.setState({
             gitPrograms: gitPrograms1, programsMenu: true, help: false, saveProgram: false, programLoad: false
           }))
-        console.log('gitPrograms1', gitPrograms1)
         fetchAsyncA()
       } else {
         store.setState({ programsMenu: true, help: false, saveProgram: false, programLoad: false })
@@ -67,7 +66,7 @@ export default class GitButton extends React.Component {
           )
         })
         return programslinks
-      } else { console.log('click git') }
+      } 
     }
 
     return (

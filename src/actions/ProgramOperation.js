@@ -3,7 +3,7 @@ import * as fn from './actions'
 import validKeyCodes from '../calculator-codes/ProgramTextCode'
 
 export default function programOperation() {
-    const {textAreaValue} = store.state
+    const { textAreaValue } = store.state
     const keyCodes1 = filterTextArea(textAreaValue)
 
     const keyCodes = keyCodes1
@@ -20,7 +20,7 @@ export default function programOperation() {
         textAreaValue = textAreaValue.replace(/ |>>/g, "")
         return textAreaValue
     }
-    console.log(filterTextArea(textAreaValue))
+    // console.log(filterTextArea(textAreaValue))
 
     for (let i = 0; i < keyCodes.length; i++) {
         const keyCode = keyCodes[i]

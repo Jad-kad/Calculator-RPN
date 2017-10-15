@@ -80,8 +80,8 @@ export const KC = {
   XROOT: 'xRoot',       // x-th root of y
 
   // switch key function
-  SWITCH_FN:'switchFn', //switch the key function
+  SWITCH_FN: 'switchFn', //switch the key function
 
   // help key function
-  HELP:'help' // shows the function explanation 
+  HELP: 'help' // shows the function explanation 
 }

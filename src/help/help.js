@@ -33,9 +33,10 @@ Changing sign
 
 Its primary uses are for entering negative numbers and changing the sign of a computed result.`
 ,'eex':`
-ENTER EXPONENT key
+Enter exponent key
 
 You can enter numbers in scientific notation by using the EEX key.
+
 You can save time when entering exact powers of ten
 simply by pressing EEX and then the desired power
 ten. `,
@@ -64,7 +65,8 @@ NOTE: The stack is raised and t is lost when a keyboard entry or RCL follows Râ†
 Clears the x stack only.`,
 'arc':`
 Inverse trigonometric functions are computed by preceding the desired trigonometric keys with the arc key.
-Answers are returned in decimal degrees.`
+Answers are returned in decimal degrees.`,
+
 
 
 }
