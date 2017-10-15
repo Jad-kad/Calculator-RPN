@@ -26,7 +26,8 @@ When you now enter a new number, it automatically clears
 the display of the old one.
 
 If you want to double the old number, just press + after the enter. Or if you want to square It, Just press ×.`
- ,'<>' :`swap the x and y stacks`
+ ,'<>' :`
+ Swap the x and y stacks`
  ,'chs':`
 Changing sign
 
@@ -37,7 +38,33 @@ ENTER EXPONENT key
 You can enter numbers in scientific notation by using the EEX key.
 You can save time when entering exact powers of ten
 simply by pressing EEX and then the desired power
-ten. `
+ten. `,
+'sto':`
+has an additional memory register for storing
+constants. It is not affected by computations. However, a
+keyboard entry or RCL immediately following STO
+does not raise the stack. 
+`,
+'rcl':`
+It recalls the value of the stored constant (when pressing STO) and raise the stack`,
+'rollDown':`
+The roll down button is used to reposition the data within the stack.
+Example: Load the stack by x=4, y=3, z=2, t=1.
+
+press R four times.
+    The fourth R↓ returns the stack to its original
+    position 
+    (X=4, y=3, Z=2 and t=1)
+
+NOTE: Pressing m after  entering a series of digits to form a number terminates the composition of the number (i. e. , no additional digits can
+be appended)
+
+NOTE: The stack is raised and t is lost when a keyboard entry or RCL follows R↓.`,
+'clx':`
+Clears the x stack only.`,
+'arc':`
+Inverse trigonometric functions are computed by preceding the desired trigonometric keys with the arc key.
+Answers are returned in decimal degrees.`
 
 
 }
